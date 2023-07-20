@@ -27,83 +27,40 @@
       integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c="
       crossorigin="anonymous"
     ></script>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-      crossorigin="anonymous"
-    ></script>
   </head>
   <body>
+    <nav class="nav_bar">
+      <button onclick="Move_health()" class="nav_item">HEALTH</button>
+      <button onclick="Move_home()" class="nav_item">HOME</button>
+      <button onclick="Move_exercise()" class="nav_item">EXERCISE</button>
+    </nav>
+
     <div id="home" style="display: block">
       <div id="banner" class="banner">
-        <div
-          id="carouselExampleControls"
-          class="carousel slide h-100"
-          data-bs-ride="carousel"
-        >
-          <div class="carousel-inner h-100">
-            <div class="carousel-item active h-100">
-              <img
-                src="./스쿼트.jpeg"
-                class="d-block w-100 h-100"
-                alt="..."
-              />
-            </div>
-            <div class="carousel-item h-100">
-              <img
-                src="./야너두.jpeg"
-                class="d-block w-100 h-100"
-                alt="..."
-              />
-            </div>
-            <div class="carousel-item h-100">
-              <img
-                src="./헬스장.jpeg"
-                class="d-block w-100 h-100"
-                alt="..."
-              />
-            </div>
+        <div class="banner_textbox">
+          <div>
+            <span class="banner_text"
+              >당신의 새로운 시작을 함께하겠습니다.</span
+            >
+            <br />
+            <span class="banner_text"> -코딩온GYM-</span>
           </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleControls"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
       </div>
       <!-- 여기까지 배너창  -------------------------------------------------------------------------------------------------------->
       <div id="inner_content" class="lower_content">
         <div id="info1" class="lower_left_content">
           <!--정보 입력창 -->
-          <button class="login">정보를 입력하기</button>
+          <button class="login">코딩온GYM 함께하기</button>
 
-          <div class="name modal">
-            <p>이름을 기입해 주세요</p>
-            <input type="text" name="name" />
+          <div class="name modal_open">
+            <p class="question">이름을 기입해 주세요</p>
+            <input class="modal_input" type="text" name="name" />
             <button class="name-next">다음</button>
           </div>
 
-          <div class="sex modal">
-            <p>성별을 선택해 주세요</p>
+          <div class="sex modal_open">
+            <p class="question">성별을 선택해 주세요</p>
             <button class="sex_select" value="남자" name="sex_male">
               남자
             </button>
@@ -112,22 +69,28 @@
             </button>
           </div>
 
-          <div class="weight modal">
-            <p>체중을 기입해 주세요</p>
-            <div><input type="text" name="weight" /> <span>Kg</span></div>
+          <div class="weight modal_open">
+            <p class="question">체중을 기입해 주세요</p>
+            <div>
+              <input class="modal_input" type="text" name="weight" />
+              <span>Kg</span>
+            </div>
             <button class="weight-next">다음</button>
           </div>
 
-          <div class="modal kal">
-            <p>최근 한달 내 측정한 기초대사량을 기입해주세요</p>
+          <div class="modal_open kal">
+            <p class="question">
+              최근 한달 내 측정한 기초대사량을 기입해주세요
+            </p>
             <div>
-              <input type="text" name="kal" value="" /> <span>Kcal</span>
+              <input class="modal_input" type="text" name="kal" value="" />
+              <span>Kcal</span>
             </div>
             <button class="kal-next">다음</button>
           </div>
 
-          <div class="Goal modal">
-            <p>운동목적을 선택해 주세요</p>
+          <div class="Goal modal_open">
+            <p class="question">운동목적을 선택해 주세요</p>
             <button class="goal_select test" value="fast" name="fast">
               빠른 다이어트
             </button>
@@ -142,31 +105,31 @@
             </button>
           </div>
 
-          <div class="result modal">
+          <div class="result modal_open">
             <div class="eat1">
-              <div>
-                <h3>
+              <div class="user_name">
+                <h2>
                   "
                   <span id="user"></span>
                   "님의 입력결과
-                </h3>
+                </h2>
               </div>
               <div class="eat1_div">
-                <div>
+                <div class="eat_divbox">
                   <h3>성별</h3>
                   <p id="sex"></p>
                 </div>
-                <div>
+                <div class="eat_divbox">
                   <h3>체중</h3>
                   <p id="weight"></p>
                 </div>
               </div>
               <div class="eat1_div">
-                <div>
+                <div class="eat_divbox">
                   <h3>기초대사량</h3>
                   <p id="BMR"></p>
                 </div>
-                <div>
+                <div class="eat_divbox">
                   <h3>운동목적</h3>
                   <p id="goal"></p>
                 </div>
@@ -200,39 +163,42 @@
         <!-- 여기까지가 모달창 -->
 
         <div id="info2" class="lower_right_content">
-          <div id="info2" class="lower_right_content">
-            <div class="progressbar_box">
-              <!-- 첫번째 바 -->
-              <div class="box">
-                <div class="progress_info">
-                  <span class="tag">탄수화물</span>
-                  <span class="user_percent"></span>
-                </div>
-                <div class="progress_area">
-                  <div class="progress"></div>
-                </div>
+          <div class="iconbox">
+            <div class="icon icno_item1"></div>
+            <div class="icon icno_item2"></div>
+            <div class="icon icno_item3"></div>
+          </div>
+          <div class="progressbar_box">
+            <!-- 첫번째 바 -->
+            <div class="box">
+              <div class="progress_info">
+                <span class="tag">탄수화물</span>
+                <span class="user_percent"></span>
               </div>
-
-              <!-- 두번째 바 -->
-              <div class="box">
-                <div class="progress_info">
-                  <span class="tag">지방</span>
-                  <span class="user_percent"></span>
-                </div>
-                <div class="progress_area">
-                  <div class="progress"></div>
-                </div>
+              <div class="progress_area">
+                <div class="progress"></div>
               </div>
+            </div>
 
-              <!-- 세번째 바 -->
-              <div class="box">
-                <div class="progress_info">
-                  <span class="tag">단백질</span>
-                  <span class="user_percent"></span>
-                </div>
-                <div class="progress_area">
-                  <div class="progress"></div>
-                </div>
+            <!-- 두번째 바 -->
+            <div class="box">
+              <div class="progress_info">
+                <span class="tag">지방</span>
+                <span class="user_percent"></span>
+              </div>
+              <div class="progress_area">
+                <div class="progress"></div>
+              </div>
+            </div>
+
+            <!-- 세번째 바 -->
+            <div class="box">
+              <div class="progress_info">
+                <span class="tag">단백질</span>
+                <span class="user_percent"></span>
+              </div>
+              <div class="progress_area">
+                <div class="progress"></div>
               </div>
             </div>
           </div>

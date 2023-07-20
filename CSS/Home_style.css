@@ -9,7 +9,7 @@ main {
   box-sizing: border-box;
 }
 
-body::after {
+/* body::after {
   width: 100%;
   height: 100%;
   content: "";
@@ -19,7 +19,7 @@ body::after {
   left: 0;
   z-index: -1;
   opacity: 0.7;
-}
+} */
 /* 공통 메뉴 */
 .nav_bar {
   width: 100vw;
@@ -45,7 +45,6 @@ body::after {
 .nav_item:hover {
   color: #1f6e8c;
   border-bottom: 10px solid white;
-
   cursor: pointer;
 }
 /* 화면1 -  home */
@@ -57,19 +56,37 @@ main > div {
 /* 내용시작 */
 
 .banner {
-  width: 80vw;
+  width: 100vw;
   height: 40vh;
   border: 3px solid black;
   position: relative;
-  margin-left: 10%;
   display: flex;
+  justify-content: flex-end;
+  background-image: url(../HTML/헬스장.avif);
+  background-repeat: no-repeat;
+  background-color: #0e2954;
+  background-size: 100vw 40vh;
+  z-index: 1;
+  opacity: 0.8;
+}
+.banner_textbox {
+  position: absolute;
+  display: flex;
+  right: 15%;
+  bottom: 10%;
+  width: 30vw;
+  height: 10vh;
+  align-items: center;
   justify-content: center;
 }
-
-.carousel {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+.banner_text_box1 {
+  color: white;
+}
+.banner_text {
+  color: white;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
 }
 
 /* 여기까지 배너---------------------------------- */
@@ -79,8 +96,10 @@ main > div {
   gap: 20px;
   padding: 15px;
 }
+
 .lower_left_content {
-  background-color: #2e8a99;
+  /* border: 3px solid #7a95e6; */
+  background-color: #7a95e6;
   width: 40vw;
   height: 45vh;
   border-radius: 30px;
@@ -91,26 +110,30 @@ main > div {
 }
 
 .lower_right_content {
-  background-color: #84a7a1;
+  display: flex;
+  border: 10px solid #7a95e6;
+  /* background-color: #84a7a1; */
   width: 60vw;
   height: 45vh;
   border-radius: 30px;
+  position: relative;
+  justify-content: space-between;
 }
 .progressbar_box {
+  position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 20px;
-
   position: relative;
-  top: 24px;
+  width: 80%;
+  height: 100%;
 }
 .box {
   background-color: #0e2954;
   border-radius: 15px;
-  width: 80%;
-  height: 25%;
+  width: 95%;
+  height: 23%;
 }
 
 /* 바 정보 */
@@ -142,7 +165,7 @@ main > div {
 /*프로그레스바 */
 .progress_area {
   width: 100%;
-  height: 30px;
+  height: 20px;
   background: #e1e1e1;
   margin-top: 30px;
   position: relative;
@@ -155,4 +178,18 @@ main > div {
   height: 100%;
   transition: all 5s;
   background-color: #2e8a99;
+  /* left: 30%; */
+}
+/* .icon {
+  background-image: url(../HTML/rice_bowl_FILL0_wght400_GRAD0_opsz48.png);
+  color: #7a95e6;
+  left: -30%; */
+/* } */
+.icno_item1 {
+  width: 50px;
+  height: 50px;
+}
+
+.modal_input {
+  text-align: center;
 }
