@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="../CSS/Exercise_style.css" />
     <link rel="stylesheet" href="../CSS/Home_style.css" />
     <link rel="stylesheet" href="../CSS/modal.css" />
-    <link rel="stylesheet" href="../CSS/Health_style.css">
+    <link rel="stylesheet" href="../CSS/Health_style.css" />
     <meta charset="UTF-8" />
     <style>
       @font-face {
@@ -24,6 +24,17 @@
     <script
       src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
       integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
 
@@ -46,13 +57,13 @@
             <!--정보 입력창 -->
             <button class="login">정보를 입력하기</button>
 
-            <div class="name modal">
+            <div class="name modal_open">
               <p>이름을 기입해 주세요</p>
               <input type="text" name="name" />
               <button class="name-next">다음</button>
             </div>
 
-            <div class="sex modal">
+            <div class="sex modal_open">
               <p>성별을 선택해 주세요</p>
               <button class="sex_select" value="남자" name="sex_male">
                 남자
@@ -62,13 +73,13 @@
               </button>
             </div>
 
-            <div class="weight modal">
+            <div class="weight modal_open">
               <p>체중을 기입해 주세요</p>
               <div><input type="text" name="weight" /> <span>Kg</span></div>
               <button class="weight-next">다음</button>
             </div>
 
-            <div class="modal kal">
+            <div class="modal_open kal">
               <p>최근 한달 내 측정한 기초대사량을 기입해주세요</p>
               <div>
                 <input type="text" name="kal" value="" /> <span>Kcal</span>
@@ -76,7 +87,7 @@
               <button class="kal-next">다음</button>
             </div>
 
-            <div class="Goal modal">
+            <div class="Goal modal_open">
               <p>운동목적을 선택해 주세요</p>
               <button class="goal_select test" value="fast" name="fast">
                 빠른 다이어트
@@ -92,7 +103,7 @@
               </button>
             </div>
 
-            <div class="result modal">
+            <div class="result modal_open">
               <div class="eat1">
                 <div>
                   <h3>
@@ -201,7 +212,7 @@
                 <div class="nutrien nutrien_box"></div>
               </div>
               <div class="imformation_box1_box imformation_box1_b3">
-                <div class="kcal_box"></div>
+                <div class="kcal_box d-flex"></div>
                 <div class="kcal_box"></div>
               </div>
             </div>
