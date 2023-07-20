@@ -1,0 +1,130 @@
+body, h3, p {
+  margin: 0;
+}
+div, nav, main {
+  box-sizing: border-box;
+}
+
+/* 공통 메뉴 */
+.nav_bar {
+  width: 100vw;
+  background-color: #0e2954;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav_item {
+  width: 200px;
+  height: 50px;
+  color: white;
+  background-color: #0e2954;
+  border: none;
+  font-size: 25px;
+  margin: 40px;
+
+  font-family: "MBC1961GulimM";
+}
+.nav_item:hover {
+  color: #1f6e8c;
+  border-bottom: 10px solid white;
+
+  cursor: pointer;
+}
+/* 화면1 -  home */
+main>div{
+  width: 100vw;
+  height: 90vh;
+}
+
+/* 내용시작 */
+.banner {
+  width: 100vw;
+  height: 40vh;
+  border: 3px solid black;
+}
+
+.lower_content {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+}
+.lower_left_content {
+  background-color: #2e8a99;
+  width: 40vw;
+  height: 45vh;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.lower_right_content {
+  background-color: #84a7a1;
+  width: 60vw;
+  height: 45vh;
+  border-radius: 30px;
+}
+.progressbar_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+
+  position: relative;
+  top: 24px;
+}
+.box {
+  background-color: #0e2954;
+  border-radius: 15px;
+  width: 80%;
+  height: 25%;
+}
+
+/* 바 정보 */
+.progress_info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tag {
+  position: relative;
+  top: 15px;
+  left: 20px;
+  color: white;
+  font-weight: 800;
+}
+.user_percent {
+  position: relative;
+  top: 15px;
+  right: 25px;
+  background-color: aliceblue;
+  width: 60px;
+  height: 25px;
+  text-align: center;
+  border-radius: 25px;
+  font-weight: 800;
+}
+
+/*프로그레스바 */
+.progress_area {
+  width: 100%;
+  height: 30px;
+  background: #e1e1e1;
+  margin-top: 30px;
+  position: relative;
+}
+
+.progress {
+  width: 0;
+  position: absolute;
+  height: 100%;
+  transition: all 5s;
+  background-color: #2e8a99;
+}

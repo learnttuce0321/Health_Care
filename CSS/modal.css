@@ -1,0 +1,108 @@
+.background {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: gray;
+  opacity: 0.5;
+  position: relative;
+}
+
+.modal {
+  background-color: white;
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  flex-direction: column;
+  border-radius: 15px;
+  width: 95%;
+  height: 90% !important;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.name {
+  z-index: 5;
+}
+
+.sex {
+  z-index: 4;
+}
+
+.weight {
+  z-index: 3;
+}
+
+.kal {
+  z-index: 2;
+}
+
+.Goal {
+  z-index: 1;
+}
+
+.select {
+  width: 100px;
+  height: 50px;
+  background-color: lightblue;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.result {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+}
+.eat1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  width: 50%;
+  height: 90%;
+  left: 0;
+  text-align: center;
+}
+.eat2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  width: 50%;
+  height: 90%;
+  right: 0;
+  text-align: center;
+}
+
+h2 {
+  margin: 0;
+  display: inline-block;
+}
+span {
+  margin: 0;
+}
+.eat_p {
+  margin: 5px;
+}
+.Goal {
+  margin: 0;
+}
+.hide {
+  display: none;
+}
+.eat1_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}

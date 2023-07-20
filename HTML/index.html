@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../CSS/Exercise_style.css" />
+    <link rel="stylesheet" href="../CSS/Home_style.css" />
+    <link rel="stylesheet" href="../CSS/modal.css" />
+    <link rel="stylesheet" href="../CSS/Health_style.css">
+    <meta charset="UTF-8" />
+    <style>
+      @font-face {
+        font-family: "MBC1961GulimM";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/MBC1961GulimM.woff2")
+          format("woff2");
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+      integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c="
+      crossorigin="anonymous"
+    ></script>
+
+    <title>HEALTH CARE</title>
+  </head>
+
+  <body>
+    <nav class="nav_bar">
+      <button onclick="Move_health()" class="nav_item">HEALTH</button>
+      <button onclick="Move_home()" class="nav_item">HOME</button>
+      <button onclick="Move_exercise()" class="nav_item">EXERCISE</button>
+    </nav>
+
+    <main>
+      <div id="home" style="display: block">
+        <div id="banner" class="banner"></div>
+
+        <div id="inner_content" class="lower_content">
+          <div id="info1" class="lower_left_content">
+            <!--정보 입력창 -->
+            <button class="login">정보를 입력하기</button>
+
+            <div class="name modal">
+              <p>이름을 기입해 주세요</p>
+              <input type="text" name="name" />
+              <button class="name-next">다음</button>
+            </div>
+
+            <div class="sex modal">
+              <p>성별을 선택해 주세요</p>
+              <button class="sex_select" value="남자" name="sex_male">
+                남자
+              </button>
+              <button class="sex_select" value="여자" name="sex_female">
+                여자
+              </button>
+            </div>
+
+            <div class="weight modal">
+              <p>체중을 기입해 주세요</p>
+              <div><input type="text" name="weight" /> <span>Kg</span></div>
+              <button class="weight-next">다음</button>
+            </div>
+
+            <div class="modal kal">
+              <p>최근 한달 내 측정한 기초대사량을 기입해주세요</p>
+              <div>
+                <input type="text" name="kal" value="" /> <span>Kcal</span>
+              </div>
+              <button class="kal-next">다음</button>
+            </div>
+
+            <div class="Goal modal">
+              <p>운동목적을 선택해 주세요</p>
+              <button class="goal_select test" value="fast" name="fast">
+                빠른 다이어트
+              </button>
+              <button class="goal_select test" value="slow" name="slow">
+                느린 다이어트
+              </button>
+              <button class="goal_select test" value="muscle" name="muscle">
+                근육량 증가
+              </button>
+              <button class="goal_select test" value="bulk" name="bulk">
+                벌크업
+              </button>
+            </div>
+
+            <div class="result modal">
+              <div class="eat1">
+                <div>
+                  <h3>
+                    "
+                    <span id="user"></span>
+                    "님의 입력결과
+                  </h3>
+                </div>
+                <div class="eat1_div">
+                  <div>
+                    <h3>성별</h3>
+                    <p id="sex"></p>
+                  </div>
+                  <div>
+                    <h3>체중</h3>
+                    <p id="weight"></p>
+                  </div>
+                </div>
+                <div class="eat1_div">
+                  <div>
+                    <h3>기초대사량</h3>
+                    <p id="BMR"></p>
+                  </div>
+                  <div>
+                    <h3>운동목적</h3>
+                    <p id="goal"></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="eat2">
+                <div>
+                  <p class="eat_p">권장 칼로리 섭취</p>
+                  <h2 id="eat_kcal" name="eat_kcal"></h2>
+                  <span>Kcal</span>
+                </div>
+                <div>
+                  <p class="eat_p">권장 탄수화물 섭취</p>
+                  <h2 id="carbohydrate"></h2>
+                  <span>Kcal</span>
+                </div>
+                <div>
+                  <p class="eat_p">권장 단백질 섭취</p>
+                  <h2 id="protein"></h2>
+                  <span>Kcal</span>
+                </div>
+                <div>
+                  <p class="eat_p">권장 지방 섭취</p>
+                  <h2 id="fat"></h2>
+                  <span>Kcal</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 여기까지가 모달창 -->
+
+          <div id="info2" class="lower_right_content">
+            <div id="info2" class="lower_right_content"> 
+              <div class="progressbar_box">
+              <!-- 첫번째 바 -->
+              <div class="box">
+                <div class="progress_info">
+                  <span class="tag">탄수화물</span>
+                  <span class="user_percent"></span>
+                </div>
+                <div class="progress_area">
+                  <div class="progress"></div>
+                </div>
+              </div>
+  
+              <!-- 두번째 바 -->
+              <div class="box">
+                <div class="progress_info">
+                  <span class="tag">지방</span>
+                  <span class="user_percent"></span>
+                </div>
+                <div class="progress_area">
+                  <div class="progress"></div>
+                </div>
+              </div>
+  
+              <!-- 세번째 바 -->
+              <div class="box">
+                <div class="progress_info">
+                  <span class="tag">단백질</span>
+                  <span class="user_percent"></span>
+                </div>
+                <div class="progress_area">
+                  <div class="progress"></div>
+                </div>
+              </div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="health" style="display: none">
+        <div class=" health_box health_box_main">
+          <div class="health_box health_box1">
+            <div class="imformation_box1">
+              <div class="imformation_box1_box imformation_box1_b1"></div>
+              <div class="imformation_box1_box imformation_box1_b2">
+                <div class="nutrien nutrien_box"></div>
+                <div class="nutrien nutrien_box"></div>
+                <div class="nutrien nutrien_box"></div>
+              </div>
+              <div class="imformation_box1_box imformation_box1_b3">
+                <div class="kcal_box"></div>
+                <div class="kcal_box"></div>
+              </div>
+            </div>
+            <div class="imformation_box2"></div>
+          </div>
+          <div class="health_box health_box2">
+            <div class="meal">아</div>
+            <div class="meal">점</div>
+            <div class="meal">저</div>
+            <div class="meal">간</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="exercise" style="display: none">
+        <div id="content3" class="health_outer_container">
+          <!-- box_inner1 - 검색창 -->
+          <div id="content_box_inner1" class="youtube_container">
+            <div class="youtube_input_container">
+              <input
+                type="text"
+                id="youtube_search"
+                class="youtube_search_input"
+                placeholder="검색창"
+              />
+              <button id="youtube_btn" class="youtube_search_btn">검색</button>
+            </div>
+            <div id="youtube_video" class="youtube_video_container"></div>
+          </div>
+
+          <!-- box_inner2 - 동영상 재생, 메모 -->
+          <div id="content_box_inner2" class="memo_container">
+            <div class="memo_input_container">
+              <h3 style="margin-bottom: 4px">메모</h3>
+              <div style="margin-bottom: 3px">
+                <span>제목 </span
+                ><input type="text" placeholder="제목" id="memo_title" /><button
+                  onclick="Write_Memo()"
+                  class="write_memo_btn"
+                >
+                  작성
+                </button>
+              </div>
+              <div style="display: flex">
+                <span>내용</span>
+                <textarea id="memo_context" cols="30" rows="5"></textarea>
+              </div>
+            </div>
+            <div class="memo_floor" id="memo_floor"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="../JS/modal.js"></script>
+    <script src="../JS/Navigate_Menu.js"></script>
+    <script src="../JS/Get_Video.js"></script>
+    <script src="../JS/memo.js"></script>
+    <script src="../JS/Main_Progress_bar.js"></script>
+  </body>
+</html>
