@@ -6,6 +6,7 @@ let goal = "";
 let eat_carbohydrate = "";
 let eat_protein = ""
 let eat_fat = ""
+let check_sign = false;
 
 $(".login").on("click", function () {
   $(".login").toggleClass("hide");
@@ -50,6 +51,8 @@ $(".kal-next").on("click", function () {
 $(".goal_select").on("click", function () {
   $(".Goal").toggleClass("show");
   $(".result").toggleClass("show");
+  check_sign = true;
+  console.log(check_sign)
 });
 
 $(".exit").on("click", function () {
