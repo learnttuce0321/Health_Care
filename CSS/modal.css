@@ -9,7 +9,7 @@
   position: relative;
 }
 
-.modal {
+.modal_open {
   background-color: white;
   align-items: center;
   display: flex;
