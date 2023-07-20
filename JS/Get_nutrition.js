@@ -51,7 +51,8 @@ $('.food_submit').click(function(e) {
     right_food_info(food_info, food_count, e)
     
     Cal_Have_Food(food_info, food_count)
-    left_progress_info()
+    left_Percent_info()
+    left_Percent_Kcal_info()
 })
 
 
@@ -120,21 +121,31 @@ function right_food_info(food_info, food_count, e) {
 
     $(`#${e.target.name}`).append(food_container)
 }
+
+
 function Cal_Have_Food(food_info, food_count) {
     have_kcal = String(Number(have_kcal) + Number(food_info.NUTR_CONT1)*food_count)
     have_carbohydrate = String(Number(have_carbohydrate) + Number(food_info.NUTR_CONT2)*food_count)
     have_protein = String(Number(have_protein) + Number(food_info.NUTR_CONT3)*food_count)
     have_fat = String(Number(have_fat) + Number(food_info.NUTR_CONT4)*food_count)
 }
-function left_progress_info() {
+
+
+function left_Percent_info() {
     if(check_sign) {
         left_progress_content()
     }
 }
+function left_Percent_Kcal_info() {
+    if(check_sign) {
+        let fountain_kcal = document.createElement('h3')
+        fountain_kcal.innerText = `${have_kcal}kcal / ${eat_kcal}`
+    }
+}
+
+
 function Render_Main_Progress_Bar() {
-    tan += Math.round(Number(have_carbohydrate)*4*100/eat_carbohydrate)
-    prt += Math.round(Number(have_protein)*4*100/eat_protein)
-    fat += Math.round(Number(have_fat)*9*100/eat_fat)
+    Progress_Bar_Number()
 
     let user_percent = $(".user_percent");
     let user_progress = $(".progress");
@@ -150,15 +161,17 @@ function Render_Main_Progress_Bar() {
 
     Clear_nutrition()
 }
+
+
 function Render_Health_Progress_Bar() {
     if(check_sign) {
         left_progress_content()
     }
 }
+
+
 function left_progress_content() {
-    tan += Math.round(Number(have_carbohydrate)*4*100/eat_carbohydrate)
-    prt += Math.round(Number(have_protein)*4*100/eat_protein)
-    fat += Math.round(Number(have_fat)*9*100/eat_fat)
+    Progress_Bar_Number()
 
     let user_percent = $('.nutrien_box')
 
@@ -170,6 +183,15 @@ function left_progress_content() {
 
     Clear_nutrition()
 }
+
+
+function Progress_Bar_Number() {
+    tan += Math.round(Number(have_carbohydrate)*4*100/eat_carbohydrate)
+    prt += Math.round(Number(have_protein)*4*100/eat_protein)
+    fat += Math.round(Number(have_fat)*9*100/eat_fat)
+}
+
+
 function Clear_nutrition() {
     tan = 0
     prt = 0
