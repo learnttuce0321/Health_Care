@@ -53,6 +53,7 @@ $('.food_submit').click(function(e) {
     Cal_Have_Food(food_info, food_count)
     left_Percent_info()
     left_Percent_Kcal_info()
+    Circle_Progress_Bar()
 })
 
 
@@ -131,6 +132,26 @@ function Cal_Have_Food(food_info, food_count) {
 }
 
 
+function Circle_Progress_Bar() {
+    if(check_sign) {
+        let control = document.getElementById("control");
+        let bar = document.querySelector(".bar");
+        let value = document.querySelector(".value");
+
+        const RADIUS = 54;
+        const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+
+        let progress = Number(have_kcal)/eat_kcal;
+        if(progress > 1) {
+            progress = 1
+        }
+        let dashoffset = CIRCUMFERENCE * (1 - progress);
+
+        value.innerHTML = total_kcal+ "%kcal";
+        bar.style.strokeDashoffset = dashoffset;
+        bar.style.strokeDasharray = CIRCUMFERENCE;
+    }
+}
 function left_Percent_info() {
     if(check_sign) {
         left_progress_content()
@@ -138,8 +159,26 @@ function left_Percent_info() {
 }
 function left_Percent_Kcal_info() {
     if(check_sign) {
+        let kcal_container = $('.kcal_box')
+        $(kcal_container[0]).html('')
+        $(kcal_container[1]).html('')
+
         let fountain_kcal = document.createElement('h3')
-        fountain_kcal.innerText = `${have_kcal}kcal / ${eat_kcal}`
+        fountain_kcal.innerText = `${Math.round(Number(have_kcal))}kcal / ${eat_kcal}kcal`
+        
+
+        total_kcal += Math.round(Number(have_kcal)*100/eat_kcal)
+
+        $(kcal_container[0]).append(fountain_kcal)
+
+        let sentence = document.createElement('h2')
+        
+        if(total_kcal > 100) {
+            sentence.innerText = ('충분해요!')
+        } else {
+            sentence.innerText = (`아직${Math.round(eat_kcal-Number(have_kcal))}kcal만큼 부족해요`)
+        }
+        $(kcal_container[1]).append(sentence)
     }
 }
 
@@ -196,4 +235,5 @@ function Clear_nutrition() {
     tan = 0
     prt = 0
     fat = 0
+    total_kcal = 0;
 }
