@@ -4,6 +4,10 @@ function Move_home() {
   document.getElementById("health").style.display = "none";
 
   document.getElementById("exercise").style.display = "none";
+
+  if(check_sign) {
+    Render_Main_Progress_Bar()
+  }
 }
 
 function Move_health() {
@@ -12,6 +16,10 @@ function Move_health() {
   document.getElementById("home").style.display = "none";
 
   document.getElementById("exercise").style.display = "none";
+
+  if(check_sign) {
+    Render_Health_Progress_Bar();
+  }
 }
 
 function Move_exercise() {

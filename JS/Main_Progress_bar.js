@@ -1,6 +1,7 @@
-let tan = 50; //탄수화물
-let fat = 80; //지방
-let prt = 40; //단백질
+let tan = 0; //탄수화물
+let fat = 0; //지방
+let prt = 0; //단백질
+
 $(document).ready(function () {
   let user_percent = $(".user_percent");
   let user_progress = $(".progress");

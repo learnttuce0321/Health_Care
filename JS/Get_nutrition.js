@@ -49,9 +49,9 @@ $('.food_submit').click(function(e) {
 
     lower_food_info(food_info)
     right_food_info(food_info, food_count, e)
+    
     Cal_Have_Food(food_info, food_count)
-    
-    
+    left_progress_info()
 })
 
 
@@ -115,7 +115,6 @@ function right_food_info(food_info, food_count, e) {
     food_n.innerText = food_info.DESC_KOR
     let food_c = document.createElement('p')
     food_c.innerText = food_count + '개'
-    console.log(food_info, food_count)
     food_container.appendChild(food_n)
     food_container.appendChild(food_c)
 
@@ -126,4 +125,53 @@ function Cal_Have_Food(food_info, food_count) {
     have_carbohydrate = String(Number(have_carbohydrate) + Number(food_info.NUTR_CONT2)*food_count)
     have_protein = String(Number(have_protein) + Number(food_info.NUTR_CONT3)*food_count)
     have_fat = String(Number(have_fat) + Number(food_info.NUTR_CONT4)*food_count)
+}
+function left_progress_info() {
+    if(check_sign) {
+        left_progress_content()
+    }
+}
+function Render_Main_Progress_Bar() {
+    tan += Math.round(Number(have_carbohydrate)*4*100/eat_carbohydrate)
+    prt += Math.round(Number(have_protein)*4*100/eat_protein)
+    fat += Math.round(Number(have_fat)*9*100/eat_fat)
+
+    let user_percent = $(".user_percent");
+    let user_progress = $(".progress");
+
+    $(user_percent[0]).text(tan + "%");
+    $(user_progress[0]).css("width", `${tan}%`);
+
+    $(user_percent[1]).text(fat + "%");
+    $(user_progress[1]).css("width", `${fat}%`);
+
+    $(user_percent[2]).text(prt + "%");
+    $(user_progress[2]).css("width", `${prt}%`);
+
+    Clear_nutrition()
+}
+function Render_Health_Progress_Bar() {
+    if(check_sign) {
+        left_progress_content()
+    }
+}
+function left_progress_content() {
+    tan += Math.round(Number(have_carbohydrate)*4*100/eat_carbohydrate)
+    prt += Math.round(Number(have_protein)*4*100/eat_protein)
+    fat += Math.round(Number(have_fat)*9*100/eat_fat)
+
+    let user_percent = $('.nutrien_box')
+
+    $(user_percent[0]).text(tan + "%");
+
+    $(user_percent[1]).text(fat + "%");
+
+    $(user_percent[2]).text(prt + "%");
+
+    Clear_nutrition()
+}
+function Clear_nutrition() {
+    tan = 0
+    prt = 0
+    fat = 0
 }
