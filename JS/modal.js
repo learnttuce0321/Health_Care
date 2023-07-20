@@ -4,6 +4,8 @@ let kcal = "";
 let eat_kcal = "";
 let goal = "";
 let eat_carbohydrate = "";
+let eat_protein = ""
+let eat_fat = ""
 
 $(".login").on("click", function () {
   $(".login").toggleClass("hide");
