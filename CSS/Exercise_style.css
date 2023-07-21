@@ -1,82 +1,213 @@
 .health_outer_container {
   display: flex;
-  gap: 20px;
+  align-items: center;
   justify-content: center;
-  /* padding: 5px; */
+  height: 90vh;
 }
 
 .youtube_container {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  margin-top: 15px;
+  justify-content: flex-start;
+  position: relative;
+
+  margin: 15px;
+  gap: 20px;
 }
 
 .youtube_input_container {
   display: flex;
-  justify-content: center;
-  gap: 15px;
 }
 .youtube_search_input {
-  width: 500px;
+  width: 100%;
   height: 70px;
+  border: 5px solid #0e2954;
+  border-radius: 15px;
+  box-shadow: 2px 2px 2px 2px gray;
+
+  font-size: 30px;
 }
 .youtube_search_btn {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  font-size: 50px;
+  background-color: white;
+  border: 1px solid white;
+  cursor: pointer;
+  color: #0e2954;
+}
+.youtube_search_btn:hover {
+  color: #cee6f3;
 }
 
 .youtube_video_container {
   background-color: black;
-  width: 55vw;
-  height: 55vh;
-  border-radius: 15px;
+  width: 50vw;
+  height: 70vh;
 }
 
 .memo_container {
   display: flex;
   flex-direction: column;
-  width: 45vw;
-  height: 90vh;
-  justify-content: space-evenly;
-  gap: px;
+  gap: 20px;
+
+  height: 74vh;
+  width: 40vw;
+  justify-content: flex-start;
+
+  margin: 15px 15px;
 }
 
 .memo_input_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input_memo_title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+.input_memo_title div,
+.input_memo_content div {
+  position: relative;
+  top: 10px;
+  color: black;
+  font-size: medium;
+  font-weight: 800;
+}
+
+.input_memo_title input,
+textarea {
   width: 100%;
-  height: 20%;
-  background-color: black;
-  border-radius: 10px;
-  color: white;
-  padding: 15px;
+  height: 30px;
+
+  background-color: #f5f5f5;
+  border: 1px solid #f5f5f5;
+  border-bottom: 3px solid black;
+  border-radius: 5px;
 }
+
+.input_memo_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+
 .write_memo_btn {
-  margin-left: 3px;
+  background: #75c2f6;
+  height: 50px;
+  cursor: pointer;
+  font-family: "MBC1961GulimM";
+  box-shadow: 2px 2px 2px 2px black;
+  border-radius: 5px;
 }
+
+.write_memo_btn:hover {
+  color: #000000;
+  background: #84a7a1;
+}
+
 #memo_context {
-  margin-left: 5px;
-  width: 90%;
+  width: 320px;
+  height: 45px;
 }
 .memo_floor {
   width: 100%;
-  height: 70%;
-  background-color: black;
-  border-radius: 10px;
-  position: relative;
+  height: 100%;
+
+  background-color: #f5f5f5;
+  border: 2px solid black;
 }
+
+.memo_back {
+  position: absolute;
+  top: -30px;
+  left: 320px;
+  font-size: 80px;
+}
+
+.memo_index {
+  position: relative;
+  left: 315px;
+  bottom: 15px;
+  color: white;
+}
+
 .memo_design {
   width: 200px;
   height: 200px;
-  background-color: white;
-  border-radius: 5px;
+  background-color: #fbeeac;
+  box-shadow: 0px 2px 0px 0px black;
+  border: 3px solid black;
   position: absolute;
   overflow: hidden;
-  border: 3px solid yellow;
+  border: 3px solid black;
 }
 .memo_design p {
   padding: 0px 4px;
   word-break: keep-all;
 }
-.memo_design h3{
+.memo_design h3 {
+  background-color: #f4d160;
   word-break: keep-all;
+}
+
+.youtube_search_input,
+.input_memo_title div,
+.input_memo_content div,
+.input_memo_title input,
+textarea,
+.memo_design,
+.memo_design p,
+.memo_design h3 {
+  font-family: "NanumSquareNeo-Variable";
+}
+
+@media screen and (max-width: 768px) {
+  .health_outer_container {
+    display: block;
+    padding-top: 30px;
+    width: 100%;
+    height: 50vh;
+    align-items: center;
+  }
+  .youtube_video_container {
+    background-color: black;
+
+    height: 500px;
+    width: auto;
+    margin-top: 30px;
+  }
+
+  .memo_container {
+    display: inline;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .memo_input_container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  #memo_context {
+    height: 70px;
+  }
+  .memo_floor {
+    height: 500px;
+
+    background-color: #f5f5f5;
+    border: 2px solid black;
+  }
 }
