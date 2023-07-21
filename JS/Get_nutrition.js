@@ -110,30 +110,36 @@ function lower_food_info(food_info) {
 
 function right_food_info(food_info, food_name, food_count, e) {
     
-    let items = $('.meal div[value]')
+    let items = $('.meal div[id]')
+    let this_item = null
     let check = false
 
     for(let i=0; i<items.length; i++) {
-        console.log($(items[i]))
-        console.log($(items[i]).val(),'+', food_name)
-        if($(items[i]).id === food_name) {
+        if(items[i].id === food_name) {
             check = true
+            this_item = items[i]
             break
         }
     }
-    console.log(check)
     
-    let food_container = document.createElement('div')
+    
+    if(check) {
+        let count = parseInt($(this_item).children('p').text())
+        count += Number(food_count)
+        $(this_item).children('p').text(count+' 개')
+    } else {
+        let food_container = document.createElement('div')
 
-    let food_n = document.createElement('h3')
-    food_n.innerText = food_info.DESC_KOR
-    let food_c = document.createElement('p')
-    food_c.innerText = food_count + '개'
-    food_container.appendChild(food_n)
-    food_container.appendChild(food_c)
-    food_container.setAttribute('value', food_info.DESC_KOR)
+        let food_n = document.createElement('h3')
+        food_n.innerText = food_info.DESC_KOR
+        let food_c = document.createElement('p')
+        food_c.innerText = food_count + '개'
+        food_container.appendChild(food_n)
+        food_container.appendChild(food_c)
+        food_container.setAttribute('id', food_info.DESC_KOR)
 
-    $(`#${e.target.name}`).append(food_container)
+        $(`#${e.target.name}`).append(food_container)
+    }
 }
 
 

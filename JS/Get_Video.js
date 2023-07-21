@@ -31,5 +31,5 @@ $('#youtube_btn').click(() => {
     $('#youtube_video').append(div)
     $('iframe').attr('src', `https://www.youtube.com/embed/${ID}`)
     $('iframe').attr("width", "100%")
-    $('iframe').attr("height", "510px")
+    $('iframe').attr("height", "663px")
 })
