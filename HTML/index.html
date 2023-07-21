@@ -10,7 +10,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
@@ -60,13 +59,13 @@
             <!--정보 입력창 -->
             <button class="login">정보를 입력하기</button>
 
-            <div class="name modal">
+            <div class="name modal_open">
               <p>이름을 기입해 주세요</p>
               <input type="text" name="name" />
               <button class="name-next">다음</button>
             </div>
 
-            <div class="sex modal">
+            <div class="sex modal_open">
               <p>성별을 선택해 주세요</p>
               <button class="sex_select" value="남자" name="sex_male">
                 남자
@@ -76,13 +75,13 @@
               </button>
             </div>
 
-            <div class="weight modal">
+            <div class="weight modal_open">
               <p>체중을 기입해 주세요</p>
               <div><input type="text" name="weight" /> <span>Kg</span></div>
               <button class="weight-next">다음</button>
             </div>
 
-            <div class="modal kal">
+            <div class="modal_open kal">
               <p>최근 한달 내 측정한 기초대사량을 기입해주세요</p>
               <div>
                 <input type="text" name="kal" value="" /> <span>Kcal</span>
@@ -90,7 +89,7 @@
               <button class="kal-next">다음</button>
             </div>
 
-            <div class="Goal modal">
+            <div class="Goal modal_open">
               <p>운동목적을 선택해 주세요</p>
               <button class="goal_select test" value="fast" name="fast">
                 빠른 다이어트
@@ -106,7 +105,7 @@
               </button>
             </div>
 
-            <div class="result modal">
+            <div class="result modal_open">
               <div class="eat1">
                 <div>
                   <h3>
@@ -208,7 +207,32 @@
         <div class="health_box health_box_main">
           <div class="health_box health_box1">
             <div class="imformation_box1">
-              <div class="imformation_box1_box imformation_box1_b1"></div>
+              <div class="imformation_box1_box imformation_box1_b1">
+                <div class="circle_progress_wrap">
+                  <svg
+                    class="circle_progress"
+                    width="200"
+                    height="200"
+                    viewBox="0 0 120 120"
+                  >
+                    <!-- 바깥 배경 원 -->
+                    <circle class="frame" cx="60" cy="60" r="54" stroke-width="12" />
+                    <!-- 채워지는 원 -->
+                    <circle
+                      class="bar"
+                      cx="60"
+                      cy="60"
+                      r="54"
+                      stroke-width="12"
+                      stroke-dasharray="350"
+                      stroke-dashoffset="350"
+                    />
+                  </svg>
+            
+                  <strong class="value"></strong>
+                </div>
+            
+              </div>
               <div class="imformation_box1_box imformation_box1_b2">
                 <div class="nutrien nutrien_box"></div>
                 <div class="nutrien nutrien_box"></div>
@@ -219,13 +243,21 @@
                 <div class="kcal_box"></div>
               </div>
             </div>
-            <div class="imformation_box2"></div>
+            <div class="imformation_box2">
+              <span>음식이름</span><input type="text" class="food_input" />
+              <span>개수</span><input type="text" class="food_input_count" />
+              <button class="food_submit" name="morning">breakfast</button>
+              <button class="food_submit" name="lunch">lunch</button>
+              <button class="food_submit" name="dinner">dinner</button>
+              <button class="food_submit" name="snack">snack</button>
+              <div id="food_info_box"></div>
+            </div>
           </div>
           <div class="health_box health_box2">
-            <div class="meal">아</div>
-            <div class="meal">점</div>
-            <div class="meal">저</div>
-            <div class="meal">간</div>
+            <div class="meal" id="morning"></div>
+            <div class="meal" id="lunch"></div>
+            <div class="meal" id="dinner"></div>
+            <div class="meal" id="snack"></div>
           </div>
         </div>
       </div>
@@ -282,5 +314,7 @@
     <script src="../JS/Get_Video.js"></script>
     <script src="../JS/memo.js"></script>
     <script src="../JS/Main_Progress_bar.js"></script>
+    <script src="../JS/Get_nutrition.js"></script>
+    <!-- <script src="../JS/Health_Circle_Progress_Bar.js"></script> -->
   </body>
 </html>

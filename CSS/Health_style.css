@@ -97,5 +97,41 @@
     width: 95%;
     height: 22%;
     border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
   }
+
+
   
+  .circle_progress_wrap {
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+  .circle_progress {
+    transform: rotate(-90deg);
+  }
+  .frame,
+  .bar {
+    fill: none;
+  }
+  .frame {
+    stroke: #e6e6e6;
+  }
+  .bar {
+    stroke: #03c75a;
+    stroke-linecap: round;
+    transition: all 2s;
+  }
+
+  .value {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    text-align: center;
+    color: #888;
+    font-size: 16px;
+    line-height: 200px;
+  }

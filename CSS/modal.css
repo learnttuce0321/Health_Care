@@ -9,7 +9,7 @@
   position: relative;
 }
 
-.modal {
+.modal_open {
   background-color: white;
   align-items: center;
   display: flex;
@@ -18,7 +18,7 @@
   flex-direction: column;
   border-radius: 15px;
   width: 95%;
-  height: 90% !important;
+  height: 93% !important;
   visibility: hidden;
   opacity: 0;
   transition: all 1s ease;
@@ -105,4 +105,31 @@ span {
   flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
+}
+.eat_divbox {
+  width: 35%;
+  height: 100%;
+}
+.user_name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 35%;
+}
+.login {
+  width: 30%;
+  height: 20%;
+  font-size: 15px;
+  border-radius: 15px;
+  font-weight: 800;
+}
+
+.question {
+  font-size: 25px;
+  font-weight: 800;
+}
+.modal_input {
+  width: 100px;
+  height: 30px;
 }
