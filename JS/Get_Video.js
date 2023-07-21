@@ -17,6 +17,7 @@ function getURL(word) {
   return target_URL_ID;
 }
 
+
 $("#youtube_btn").click(() => {
   let search_word = $("#youtube_search").val();
   $("#youtube_search").val("");
@@ -31,3 +32,4 @@ $("#youtube_btn").click(() => {
   $("iframe").attr("width", "100%");
   $("iframe").attr("height", "663px");
 });
+
