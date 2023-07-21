@@ -4,12 +4,25 @@
     <link rel="stylesheet" href="../CSS/Exercise_style.css" />
     <link rel="stylesheet" href="../CSS/Home_style.css" />
     <link rel="stylesheet" href="../CSS/modal.css" />
-    <link rel="stylesheet" href="../CSS/Health_style.css">
+    <link rel="stylesheet" href="../CSS/Health_style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       @font-face {
         font-family: "MBC1961GulimM";
         src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/MBC1961GulimM.woff2")
+          format("woff2");
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "NanumSquareNeo-Variable";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2")
           format("woff2");
         font-weight: normal;
         font-style: normal;
@@ -150,48 +163,48 @@
           <!-- 여기까지가 모달창 -->
 
           <div id="info2" class="lower_right_content">
-            <div id="info2" class="lower_right_content"> 
+            <div id="info2" class="lower_right_content">
               <div class="progressbar_box">
-              <!-- 첫번째 바 -->
-              <div class="box">
-                <div class="progress_info">
-                  <span class="tag">탄수화물</span>
-                  <span class="user_percent"></span>
+                <!-- 첫번째 바 -->
+                <div class="box">
+                  <div class="progress_info">
+                    <span class="tag">탄수화물</span>
+                    <span class="user_percent"></span>
+                  </div>
+                  <div class="progress_area">
+                    <div class="progress"></div>
+                  </div>
                 </div>
-                <div class="progress_area">
-                  <div class="progress"></div>
+
+                <!-- 두번째 바 -->
+                <div class="box">
+                  <div class="progress_info">
+                    <span class="tag">지방</span>
+                    <span class="user_percent"></span>
+                  </div>
+                  <div class="progress_area">
+                    <div class="progress"></div>
+                  </div>
+                </div>
+
+                <!-- 세번째 바 -->
+                <div class="box">
+                  <div class="progress_info">
+                    <span class="tag">단백질</span>
+                    <span class="user_percent"></span>
+                  </div>
+                  <div class="progress_area">
+                    <div class="progress"></div>
+                  </div>
                 </div>
               </div>
-  
-              <!-- 두번째 바 -->
-              <div class="box">
-                <div class="progress_info">
-                  <span class="tag">지방</span>
-                  <span class="user_percent"></span>
-                </div>
-                <div class="progress_area">
-                  <div class="progress"></div>
-                </div>
-              </div>
-  
-              <!-- 세번째 바 -->
-              <div class="box">
-                <div class="progress_info">
-                  <span class="tag">단백질</span>
-                  <span class="user_percent"></span>
-                </div>
-                <div class="progress_area">
-                  <div class="progress"></div>
-                </div>
-              </div>
-          </div>
-        </div>
+            </div>
           </div>
         </div>
       </div>
 
       <div id="health" style="display: none">
-        <div class=" health_box health_box_main">
+        <div class="health_box health_box_main">
           <div class="health_box health_box1">
             <div class="imformation_box1">
               <div class="imformation_box1_box imformation_box1_b1"></div>
@@ -225,31 +238,38 @@
                 type="text"
                 id="youtube_search"
                 class="youtube_search_input"
-                placeholder="검색창"
+                placeholder=""
               />
-              <button id="youtube_btn" class="youtube_search_btn">검색</button>
+              <button id="youtube_btn" class="youtube_search_btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
             </div>
+
             <div id="youtube_video" class="youtube_video_container"></div>
           </div>
 
           <!-- box_inner2 - 동영상 재생, 메모 -->
           <div id="content_box_inner2" class="memo_container">
             <div class="memo_input_container">
-              <h3 style="margin-bottom: 4px">메모</h3>
-              <div style="margin-bottom: 3px">
-                <span>제목 </span
-                ><input type="text" placeholder="제목" id="memo_title" /><button
-                  onclick="Write_Memo()"
-                  class="write_memo_btn"
-                >
-                  작성
-                </button>
+              <div class="input_memo_title">
+                <div>제목</div>
+                <input
+                  type="text"
+                  placeholder="제목을 입력해주세요."
+                  id="memo_title"
+                />
               </div>
-              <div style="display: flex">
-                <span>내용</span>
-                <textarea id="memo_context" cols="30" rows="5"></textarea>
+              <div class="input_memo_content">
+                <div>내용</div>
+                <textarea
+                  id="memo_context"
+                  style="width: 100%"
+                  rows="10"
+                ></textarea>
               </div>
             </div>
+            <button onclick="Write_Memo()" class="write_memo_btn">INPUT</button>
+
             <div class="memo_floor" id="memo_floor"></div>
           </div>
         </div>
