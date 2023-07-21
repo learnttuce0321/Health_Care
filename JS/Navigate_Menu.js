@@ -18,7 +18,9 @@ function Move_health() {
   document.getElementById("exercise").style.display = "none";
 
   if(check_sign) {
-    Render_Health_Progress_Bar();
+    Render_Health_Progress_Bar()
+    Render_Left_Lower_content()
+    Render_Circle_Progress_Bar()
   }
 }
 
