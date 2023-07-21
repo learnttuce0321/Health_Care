@@ -51,6 +51,18 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-thin-rounded/css/uicons-thin-rounded.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css"
+    />
     <title>HEALTH CARE</title>
   </head>
 
@@ -63,21 +75,29 @@
 
     <main>
       <div id="home" style="display: block">
-        <div id="banner" class="banner"></div>
-
+        <div id="banner" class="banner">
+          <div class="banner_textbox">
+            <div>
+              <span class="banner_text1">운동!식단!<br />한번에 다 잡았다</span>
+              <br />
+              <span class="banner_text2"> -코딩온GYM-</span>
+            </div>
+          </div>
+        </div>
+        <!-- 여기까지 배너창  -------------------------------------------------------------------------------------------------------->
         <div id="inner_content" class="lower_content">
           <div id="info1" class="lower_left_content">
             <!--정보 입력창 -->
-            <button class="login">정보를 입력하기</button>
-
+            <button class="login">코딩온GYM <br />함께하기</button>
+  
             <div class="name modal_open">
-              <p>이름을 기입해 주세요</p>
-              <input type="text" name="name" />
+              <p class="question">이름을 기입해 주세요</p>
+              <input class="modal_input" type="text" name="name" />
               <button class="name-next">다음</button>
             </div>
-
+  
             <div class="sex modal_open">
-              <p>성별을 선택해 주세요</p>
+              <p class="question">성별을 선택해 주세요</p>
               <button class="sex_select" value="남자" name="sex_male">
                 남자
               </button>
@@ -85,23 +105,29 @@
                 여자
               </button>
             </div>
-
+  
             <div class="weight modal_open">
-              <p>체중을 기입해 주세요</p>
-              <div><input type="text" name="weight" /> <span>Kg</span></div>
+              <p class="question">체중을 기입해 주세요</p>
+              <div>
+                <input class="modal_input" type="text" name="weight" />
+                <span>Kg</span>
+              </div>
               <button class="weight-next">다음</button>
             </div>
-
+  
             <div class="modal_open kal">
-              <p>최근 한달 내 측정한 기초대사량을 기입해주세요</p>
+              <p class="question">
+                최근 한달 내 측정한 기초대사량을 기입해주세요
+              </p>
               <div>
-                <input type="text" name="kal" value="" /> <span>Kcal</span>
+                <input class="modal_input" type="text" name="kal" value="" />
+                <span>Kcal</span>
               </div>
               <button class="kal-next">다음</button>
             </div>
-
+  
             <div class="Goal modal_open">
-              <p>운동목적을 선택해 주세요</p>
+              <p class="question">운동목적을 선택해 주세요</p>
               <button class="goal_select test" value="fast" name="fast">
                 빠른 다이어트
               </button>
@@ -115,55 +141,55 @@
                 벌크업
               </button>
             </div>
-
+  
             <div class="result modal_open">
               <div class="eat1">
-                <div>
-                  <h3>
+                <div class="user_name">
+                  <h2>
                     "
                     <span id="user"></span>
                     "님의 입력결과
-                  </h3>
+                  </h2>
                 </div>
                 <div class="eat1_div">
-                  <div>
-                    <h3>성별</h3>
-                    <p id="sex"></p>
+                  <div class="eat_divbox">
+                    <p>성별</p>
+                    <h3 id="sex"></h3>
                   </div>
-                  <div>
-                    <h3>체중</h3>
-                    <p id="weight"></p>
+                  <div class="eat_divbox">
+                    <p>체중</p>
+                    <h3 id="weight"></h3>
                   </div>
                 </div>
                 <div class="eat1_div">
-                  <div>
-                    <h3>기초대사량</h3>
-                    <p id="BMR"></p>
+                  <div class="eat_divbox">
+                    <p>기초대사량</p>
+                    <h3 id="BMR"></h3>
                   </div>
-                  <div>
-                    <h3>운동목적</h3>
-                    <p id="goal"></p>
+                  <div class="eat_divbox">
+                    <p>운동목적</p>
+                    <h3 id="goal"></h3>
                   </div>
                 </div>
               </div>
-
+  
               <div class="eat2">
-                <div>
+                <div class="eat_box">
                   <p class="eat_p">권장 칼로리 섭취</p>
                   <h2 id="eat_kcal" name="eat_kcal"></h2>
                   <span>Kcal</span>
                 </div>
-                <div>
+                <div class="eat_box">
                   <p class="eat_p">권장 탄수화물 섭취</p>
                   <h2 id="carbohydrate"></h2>
                   <span>Kcal</span>
                 </div>
-                <div>
+                <div class="eat_box">
                   <p class="eat_p">권장 단백질 섭취</p>
                   <h2 id="protein"></h2>
                   <span>Kcal</span>
                 </div>
-                <div>
+                <div class="eat_box">
                   <p class="eat_p">권장 지방 섭취</p>
                   <h2 id="fat"></h2>
                   <span>Kcal</span>
@@ -172,41 +198,44 @@
             </div>
           </div>
           <!-- 여기까지가 모달창 -->
-
+  
           <div id="info2" class="lower_right_content">
-            <div id="info2" class="lower_right_content">
-              <div class="progressbar_box">
-                <!-- 첫번째 바 -->
-                <div class="box">
-                  <div class="progress_info">
-                    <span class="tag">탄수화물</span>
-                    <span class="user_percent"></span>
-                  </div>
-                  <div class="progress_area">
-                    <div class="progress"></div>
-                  </div>
+            <div class="textbox">
+              <div class="text_item"><p>탄수화물</p></div>
+              <div class="text_item"><p>지방</p></div>
+              <div class="text_item"><p>단백질</p></div>
+            </div>
+            <div class="progressbar_box">
+              <!-- 첫번째 바 -->
+              <div class="box">
+                <div class="progress_info">
+                  <span class="tag"><i class="fi fi-rs-bread"></i></span>
+                  <span class="user_percent"></span>
                 </div>
-
-                <!-- 두번째 바 -->
-                <div class="box">
-                  <div class="progress_info">
-                    <span class="tag">지방</span>
-                    <span class="user_percent"></span>
-                  </div>
-                  <div class="progress_area">
-                    <div class="progress"></div>
-                  </div>
+                <div class="progress_area">
+                  <div class="progress"></div>
                 </div>
-
-                <!-- 세번째 바 -->
-                <div class="box">
-                  <div class="progress_info">
-                    <span class="tag">단백질</span>
-                    <span class="user_percent"></span>
-                  </div>
-                  <div class="progress_area">
-                    <div class="progress"></div>
-                  </div>
+              </div>
+  
+              <!-- 두번째 바 -->
+              <div class="box">
+                <div class="progress_info">
+                  <span class="tag"><i class="fi fi-br-egg"></i></span>
+                  <span class="user_percent"></span>
+                </div>
+                <div class="progress_area">
+                  <div class="progress"></div>
+                </div>
+              </div>
+  
+              <!-- 세번째 바 -->
+              <div class="box">
+                <div class="progress_info">
+                  <span class="tag"><i class="fi fi-rs-meat"></i></span>
+                  <span class="user_percent"></span>
+                </div>
+                <div class="progress_area">
+                  <div class="progress"></div>
                 </div>
               </div>
             </div>
