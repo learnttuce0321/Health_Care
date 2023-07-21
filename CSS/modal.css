@@ -23,7 +23,9 @@
   opacity: 0;
   transition: all 1s ease;
 }
-
+.modal_open input {
+  outline: none;
+}
 .name {
   z-index: 5;
 }
@@ -153,6 +155,7 @@ span {
   border: 3px solid #91d8e4;
   font-size: 100%;
   background-color: #91d8e4;
+  /* outline: none; */
 }
 .goal_select {
   width: 20%;
