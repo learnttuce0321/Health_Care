@@ -29,7 +29,7 @@ textarea {
   border: none;
   font-size: 25px;
   margin: 40px;
-
+  transition: all 0.2s;
   font-family: "MBC1961GulimM";
 }
 .nav_item:hover {
@@ -221,7 +221,8 @@ i {
   }
   #info2 {
     width: 100%;
-
+  }
+}
 
 @media screen and (max-width: 768px) {
   .nav_bar {
