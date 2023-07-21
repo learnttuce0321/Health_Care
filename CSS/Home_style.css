@@ -6,7 +6,8 @@ p {
 div,
 nav,
 main,
-input {
+input,
+textarea {
   box-sizing: border-box;
 }
 
@@ -199,6 +200,7 @@ i {
 .modal_input {
   text-align: center;
 }
+
 .fi-rs-bread {
   color: #e6a356;
 }
@@ -219,5 +221,17 @@ i {
   }
   #info2 {
     width: 100%;
+
+
+@media screen and (max-width: 768px) {
+  .nav_bar {
+    width: 100%;
+    height: fit-content;
+  }
+
+  .nav_item {
+    font-size: 15px;
+    margin: 15px;
+
   }
 }
