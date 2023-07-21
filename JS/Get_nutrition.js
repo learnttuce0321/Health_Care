@@ -44,8 +44,12 @@ $('.food_submit').click(function(e) {
     let food_name = $('.food_input').val()
     let food_count = $('.food_input_count').val()
 
-    $('.food_input').val("")  
-    $('.food_input_count').val("")
+    if(!food_info) {
+        console.log('break')
+        return false
+    }
+    $('.food_input').val('')
+    $('.food_input_count').val('')
 
     lower_food_info(food_info)
     right_food_info(food_info, food_name, food_count, e)

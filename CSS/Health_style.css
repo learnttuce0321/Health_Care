@@ -3,7 +3,7 @@
     border: none;
     display: flex;
     justify-content: center;
-    overflow-y: scroll;
+    overflow: scroll;
   }
   .health_box {
     border-radius: 10px;
@@ -108,12 +108,14 @@
     font-weight: 700;
   }
   .information_input_container input {
+    width: 80%;
     height: 25px;
     border: 3px solid #BFEAF5;
     border-radius: 10px;
     background-color: #EAFDFC;
     padding: 0px 5px;
     outline: none;
+    transition: all 0.3s;
   }
   .information_input_container input:hover {
     border: 3px solid #91D8E4;
@@ -129,7 +131,7 @@
   
   .information_button_container button{
     width: 40%;
-    margin: 2px;
+    margin: 3px;
     border: 3px solid #91D8E4;
     border-radius: 10px;
     outline: none;
@@ -227,7 +229,11 @@
     font-size: 16px;
     line-height: 200px;
   }
-
+  @media screen and (max-width: 950px){
+    .information_input_container input {
+      width: 60%;
+    }
+  }
   @media screen and (max-width: 768px) {
    .health_box_main {
     flex-direction: column;
@@ -249,4 +255,8 @@
    .kcal_box h3{
     font-size: 15px;
    }
+   .information_input_container input {
+    width: 80%;
   }
+  }
+  
