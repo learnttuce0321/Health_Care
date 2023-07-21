@@ -48,7 +48,7 @@ $('.food_submit').click(function(e) {
     $('.food_input_count').val("")
 
     lower_food_info(food_info)
-    right_food_info(food_info, food_count, e)
+    right_food_info(food_info, food_name, food_count, e)
     
     Cal_Have_Food(food_info, food_count)
     left_Percent_info()
@@ -64,36 +64,36 @@ function lower_food_info(food_info) {
     food_info_name.innerText = food_info.DESC_KOR + '(1회 제공량)'
 
     let food_info_kcal_div = document.createElement('div')
-    let food_info_kcal_title = document.createElement('h3')
+    let food_info_kcal_title = document.createElement('p')
     food_info_kcal_title.innerText = 'kcal'
-    let food_info_kcal_content =document.createElement('p')
+    let food_info_kcal_content =document.createElement('h2')
     food_info_kcal_content.innerText = food_info.NUTR_CONT1
-    food_info_kcal_div.appendChild(food_info_kcal_title)
     food_info_kcal_div.appendChild(food_info_kcal_content)
+    food_info_kcal_div.appendChild(food_info_kcal_title)
 
     let food_info_tan_div = document.createElement('div')
-    let food_info_tan_title = document.createElement('h3')
+    let food_info_tan_title = document.createElement('p')
     food_info_tan_title.innerText = '탄수화물'
-    let food_info_tan_content =document.createElement('p')
+    let food_info_tan_content =document.createElement('h2')
     food_info_tan_content.innerText = food_info.NUTR_CONT2
-    food_info_tan_div.appendChild(food_info_tan_title)
     food_info_tan_div.appendChild(food_info_tan_content)
+    food_info_tan_div.appendChild(food_info_tan_title)
 
     let food_info_dan_div = document.createElement('div')
-    let food_info_dan_title = document.createElement('h3')
+    let food_info_dan_title = document.createElement('p')
     food_info_dan_title.innerText = '단백질'
-    let food_info_dan_content =document.createElement('p')
+    let food_info_dan_content =document.createElement('h2')
     food_info_dan_content.innerText = food_info.NUTR_CONT3
-    food_info_dan_div.appendChild(food_info_dan_title)
     food_info_dan_div.appendChild(food_info_dan_content)
+    food_info_dan_div.appendChild(food_info_dan_title)
 
     let food_info_fat_div = document.createElement('div')
-    let food_info_fat_title = document.createElement('h3')
+    let food_info_fat_title = document.createElement('p')
     food_info_fat_title.innerText = '지방'
-    let food_info_fat_content =document.createElement('p')
+    let food_info_fat_content =document.createElement('h2')
     food_info_fat_content.innerText = food_info.NUTR_CONT4
-    food_info_fat_div.appendChild(food_info_fat_title)
     food_info_fat_div.appendChild(food_info_fat_content)
+    food_info_fat_div.appendChild(food_info_fat_title)
 
     let info_div = document.createElement('div')
     info_div.style.display = 'flex'
@@ -108,9 +108,21 @@ function lower_food_info(food_info) {
 }
 
 
-function right_food_info(food_info, food_count, e) {
+function right_food_info(food_info, food_name, food_count, e) {
     
+    let items = $('.meal div[value]')
+    let check = false
 
+    for(let i=0; i<items.length; i++) {
+        console.log($(items[i]))
+        console.log($(items[i]).val(),'+', food_name)
+        if($(items[i]).id === food_name) {
+            check = true
+            break
+        }
+    }
+    console.log(check)
+    
     let food_container = document.createElement('div')
 
     let food_n = document.createElement('h3')
@@ -119,6 +131,7 @@ function right_food_info(food_info, food_count, e) {
     food_c.innerText = food_count + '개'
     food_container.appendChild(food_n)
     food_container.appendChild(food_c)
+    food_container.setAttribute('value', food_info.DESC_KOR)
 
     $(`#${e.target.name}`).append(food_container)
 }
@@ -134,22 +147,7 @@ function Cal_Have_Food(food_info, food_count) {
 
 function Circle_Progress_Bar() {
     if(check_sign) {
-        let control = document.getElementById("control");
-        let bar = document.querySelector(".bar");
-        let value = document.querySelector(".value");
-
-        const RADIUS = 54;
-        const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
-
-        let progress = Number(have_kcal)/eat_kcal;
-        if(progress > 1) {
-            progress = 1
-        }
-        let dashoffset = CIRCUMFERENCE * (1 - progress);
-
-        value.innerHTML = total_kcal+ "%kcal";
-        bar.style.strokeDashoffset = dashoffset;
-        bar.style.strokeDasharray = CIRCUMFERENCE;
+        Circle_Progress_Bar_content()
     }
 }
 function left_Percent_info() {
@@ -159,26 +157,7 @@ function left_Percent_info() {
 }
 function left_Percent_Kcal_info() {
     if(check_sign) {
-        let kcal_container = $('.kcal_box')
-        $(kcal_container[0]).html('')
-        $(kcal_container[1]).html('')
-
-        let fountain_kcal = document.createElement('h3')
-        fountain_kcal.innerText = `${Math.round(Number(have_kcal))}kcal / ${eat_kcal}kcal`
-        
-
-        total_kcal += Math.round(Number(have_kcal)*100/eat_kcal)
-
-        $(kcal_container[0]).append(fountain_kcal)
-
-        let sentence = document.createElement('h2')
-        
-        if(total_kcal > 100) {
-            sentence.innerText = ('충분해요!')
-        } else {
-            sentence.innerText = (`아직${Math.round(eat_kcal-Number(have_kcal))}kcal만큼 부족해요`)
-        }
-        $(kcal_container[1]).append(sentence)
+        left_lower_content()
     }
 }
 
@@ -200,19 +179,23 @@ function Render_Main_Progress_Bar() {
 
     Clear_nutrition()
 }
-
-
 function Render_Health_Progress_Bar() {
     if(check_sign) {
         left_progress_content()
     }
+}
+function Render_Left_Lower_content() {
+    left_lower_content()
+}
+function Render_Circle_Progress_Bar() {
+    Circle_Progress_Bar_content()
 }
 
 
 function left_progress_content() {
     Progress_Bar_Number()
 
-    let user_percent = $('.nutrien_box')
+    let user_percent = $('.nutrien>h2')
 
     $(user_percent[0]).text(tan + "%");
 
@@ -221,6 +204,46 @@ function left_progress_content() {
     $(user_percent[2]).text(prt + "%");
 
     Clear_nutrition()
+}
+function left_lower_content() {
+    let kcal_container = $('.kcal_box')
+    $(kcal_container[0]).html('')
+    $(kcal_container[1]).html('')
+
+    let fountain_kcal = document.createElement('h3')
+    fountain_kcal.innerText = `${Math.round(Number(have_kcal))} / ${eat_kcal}kcal`
+    
+
+    total_kcal += Math.round(Number(have_kcal)*100/eat_kcal)
+
+    $(kcal_container[0]).append(fountain_kcal)
+
+    let sentence = document.createElement('h3')
+    
+    if(total_kcal > 100) {
+        sentence.innerText = ('충분해요!')
+    } else {
+        sentence.innerText = (`${Math.round(eat_kcal-Number(have_kcal))} kcal만큼 부족해요`)
+    }
+    $(kcal_container[1]).append(sentence)
+}
+function Circle_Progress_Bar_content() {
+    let control = document.getElementById("control");
+        let bar = document.querySelector(".bar");
+        let value = document.querySelector(".value");
+
+        const RADIUS = 54;
+        const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+
+        let progress = Number(have_kcal)/eat_kcal;
+        if(progress > 1) {
+            progress = 1
+        }
+        let dashoffset = CIRCUMFERENCE * (1 - progress);
+
+        value.innerHTML = total_kcal+ "%kcal";
+        bar.style.strokeDashoffset = dashoffset;
+        bar.style.strokeDasharray = CIRCUMFERENCE;
 }
 
 

@@ -204,7 +204,8 @@
       </div>
 
       <div id="health" style="display: none">
-        <div class="health_box health_box_main">
+
+        <div class="health_box_main">
           <div class="health_box health_box1">
             <div class="imformation_box1">
               <div class="imformation_box1_box imformation_box1_b1">
@@ -234,9 +235,21 @@
             
               </div>
               <div class="imformation_box1_box imformation_box1_b2">
-                <div class="nutrien nutrien_box"></div>
-                <div class="nutrien nutrien_box"></div>
-                <div class="nutrien nutrien_box"></div>
+                <div class="nutrien">
+                  <p>•</p>
+                  <p>탄수화물</p>
+                  <h2></h2>
+                </div>
+                <div class="nutrien">
+                  <p>•</p>
+                  <p>지방</p>
+                  <h2></h2>
+                </div>
+                <div class="nutrien">
+                  <p>•</p>
+                  <p>단백질</p>
+                  <h2></h2>
+                </div>
               </div>
               <div class="imformation_box1_box imformation_box1_b3">
                 <div class="kcal_box"></div>
@@ -244,23 +257,46 @@
               </div>
             </div>
             <div class="imformation_box2">
-              <span>음식이름</span><input type="text" class="food_input" />
-              <span>개수</span><input type="text" class="food_input_count" />
-              <button class="food_submit" name="morning">breakfast</button>
-              <button class="food_submit" name="lunch">lunch</button>
-              <button class="food_submit" name="dinner">dinner</button>
-              <button class="food_submit" name="snack">snack</button>
-              <div id="food_info_box"></div>
+              <div class="information_input_container">
+                <div>
+                  <div>
+                    <span>음식</span><input type="text" class="food_input">
+                  </div>
+                  <div>
+                    <span>개수</span><input type="text" class="food_input_count">
+                  </div>
+                </div>
+                <div class="information_button_container">
+                  <button class="food_submit" name="morning">breakfast</button>
+                  <button class="food_submit" name="lunch">lunch</button>
+                  <button class="food_submit" name="dinner">dinner</button>
+                  <button class="food_submit" name="snack">snack</button>
+                </div>
+              </div>
+              
+              <div id="food_info_box" class="food_info_box"></div>
             </div>
           </div>
           <div class="health_box health_box2">
-            <div class="meal" id="morning"></div>
-            <div class="meal" id="lunch"></div>
-            <div class="meal" id="dinner"></div>
-            <div class="meal" id="snack"></div>
+            <div class="meal_container" >
+              <h3>아침</h3>
+              <div class="meal" id="morning"></div>
+            </div>
+            <div class="meal_container" >
+              <h3>점심</h3>
+              <div class="meal" id="lunch"></div>
+            </div>
+            <div class="meal_container" >
+              <h3>저녁</h3>
+              <div class="meal" id="dinner"></div>
+            </div>
+            <div class="meal_container" >
+              <h3>간식</h3>
+              <div class="meal" id="snack"></div>
+            </div>
           </div>
         </div>
-      </div>
+      </div>  
 
       <div id="exercise" style="display: none">
         <div id="content3" class="health_outer_container">
