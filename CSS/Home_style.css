@@ -6,7 +6,8 @@ p {
 div,
 nav,
 main,
-input {
+input,
+textarea {
   box-sizing: border-box;
 }
 
@@ -193,4 +194,16 @@ main > div {
 
 .modal_input {
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .nav_bar {
+    width: 100%;
+    height: fit-content;
+  }
+
+  .nav_item {
+    font-size: 15px;
+    margin: 15px;
+  }
 }
