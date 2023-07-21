@@ -4,8 +4,8 @@ let kcal = "";
 let eat_kcal = "";
 let goal = "";
 let eat_carbohydrate = "";
-let eat_protein = ""
-let eat_fat = ""
+let eat_protein = "";
+let eat_fat = "";
 let check_sign = false;
 
 $(".login").on("click", function () {
@@ -52,7 +52,7 @@ $(".goal_select").on("click", function () {
   $(".Goal").toggleClass("show");
   $(".result").toggleClass("show");
   check_sign = true;
-  console.log(check_sign)
+  console.log(check_sign);
 });
 
 $(".exit").on("click", function () {
@@ -194,3 +194,7 @@ function Fat() {
   }
   return eat_fat;
 }
+
+$(".test").on("click", function () {
+  $(".blur").css("filter", "none");
+});
