@@ -5,8 +5,8 @@ function Move_home() {
 
   document.getElementById("exercise").style.display = "none";
 
-  if(check_sign) {
-    Render_Main_Progress_Bar()
+  if (check_sign) {
+    Render_Main_Progress_Bar();
   }
 }
 
@@ -17,10 +17,10 @@ function Move_health() {
 
   document.getElementById("exercise").style.display = "none";
 
-  if(check_sign) {
-    Render_Health_Progress_Bar()
-    Render_Left_Lower_content()
-    Render_Circle_Progress_Bar()
+  if (check_sign) {
+    Render_Health_Progress_Bar();
+    Render_Left_Lower_content();
+    Render_Circle_Progress_Bar();
   }
 }
 

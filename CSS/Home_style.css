@@ -11,18 +11,6 @@ textarea {
   box-sizing: border-box;
 }
 
-/* body::after {
-  width: 100%;
-  height: 100%;
-  content: "";
-  background-image: url(../HTML/헬스장.avif);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  opacity: 0.7;
-} */
-/* 공통 메뉴 */
 .nav_bar {
   width: 100vw;
   background-color: #0e2954;
@@ -84,7 +72,13 @@ main > div {
 .banner_text_box1 {
   color: white;
 }
-.banner_text {
+.banner_text1 {
+  color: white;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: bold;
+}
+.banner_text2 {
   color: white;
   font-size: 20px;
   font-style: italic;
@@ -101,7 +95,7 @@ main > div {
 
 .lower_left_content {
   /* border: 3px solid #7a95e6; */
-  background-color: #7a95e6;
+  background-color: #c0eaf5;
   width: 40vw;
   height: 45vh;
   border-radius: 30px;
@@ -113,7 +107,7 @@ main > div {
 
 .lower_right_content {
   display: flex;
-  border: 10px solid #7a95e6;
+  border: 10px solid #c0eaf5;
   /* background-color: #84a7a1; */
   width: 60vw;
   height: 45vh;
@@ -128,7 +122,7 @@ main > div {
   justify-content: space-evenly;
   align-items: center;
   position: relative;
-  width: 80%;
+  width: 85%;
   height: 100%;
 }
 .box {
@@ -182,19 +176,52 @@ main > div {
   background-color: #2e8a99;
   /* left: 30%; */
 }
-/* .icon {
-  background-image: url(../HTML/rice_bowl_FILL0_wght400_GRAD0_opsz48.png);
-  color: #7a95e6;
-  left: -30%; */
-/* } */
-.icno_item1 {
-  width: 50px;
-  height: 50px;
+.textbox {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+.text_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100%;
+  font-weight: 800;
+  height: 900%;
+}
+i {
+  font-size: 20px;
 }
 
 .modal_input {
   text-align: center;
 }
+
+.fi-rs-bread {
+  color: #e6a356;
+}
+.fi-br-egg {
+  color: #ffee00;
+}
+.fi-rs-meat {
+  color: #ffa88f;
+}
+
+@media screen and (max-width: 768px) {
+  #inner_content {
+    display: flex;
+    flex-direction: column;
+  }
+  #info1 {
+    width: 100%;
+  }
+  #info2 {
+    width: 100%;
+
 
 @media screen and (max-width: 768px) {
   .nav_bar {
@@ -205,5 +232,6 @@ main > div {
   .nav_item {
     font-size: 15px;
     margin: 15px;
+
   }
 }
