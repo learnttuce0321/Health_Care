@@ -27,6 +27,18 @@
       integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c="
       crossorigin="anonymous"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-thin-rounded/css/uicons-thin-rounded.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css"
+    />
   </head>
   <body>
     <nav class="nav_bar">
@@ -39,11 +51,9 @@
       <div id="banner" class="banner">
         <div class="banner_textbox">
           <div>
-            <span class="banner_text"
-              >당신의 새로운 시작을 함께하겠습니다.</span
-            >
+            <span class="banner_text1">운동!식단!<br />한번에 다 잡았다</span>
             <br />
-            <span class="banner_text"> -코딩온GYM-</span>
+            <span class="banner_text2"> -코딩온GYM-</span>
           </div>
         </div>
       </div>
@@ -51,7 +61,7 @@
       <div id="inner_content" class="lower_content">
         <div id="info1" class="lower_left_content">
           <!--정보 입력창 -->
-          <button class="login">코딩온GYM 함께하기</button>
+          <button class="login">코딩온GYM <br />함께하기</button>
 
           <div class="name modal_open">
             <p class="question">이름을 기입해 주세요</p>
@@ -116,43 +126,43 @@
               </div>
               <div class="eat1_div">
                 <div class="eat_divbox">
-                  <h3>성별</h3>
-                  <p id="sex"></p>
+                  <p>성별</p>
+                  <h3 id="sex"></h3>
                 </div>
                 <div class="eat_divbox">
-                  <h3>체중</h3>
-                  <p id="weight"></p>
+                  <p>체중</p>
+                  <h3 id="weight"></h3>
                 </div>
               </div>
               <div class="eat1_div">
                 <div class="eat_divbox">
-                  <h3>기초대사량</h3>
-                  <p id="BMR"></p>
+                  <p>기초대사량</p>
+                  <h3 id="BMR"></h3>
                 </div>
                 <div class="eat_divbox">
-                  <h3>운동목적</h3>
-                  <p id="goal"></p>
+                  <p>운동목적</p>
+                  <h3 id="goal"></h3>
                 </div>
               </div>
             </div>
 
             <div class="eat2">
-              <div>
+              <div class="eat_box">
                 <p class="eat_p">권장 칼로리 섭취</p>
                 <h2 id="eat_kcal" name="eat_kcal"></h2>
                 <span>Kcal</span>
               </div>
-              <div>
+              <div class="eat_box">
                 <p class="eat_p">권장 탄수화물 섭취</p>
                 <h2 id="carbohydrate"></h2>
                 <span>Kcal</span>
               </div>
-              <div>
+              <div class="eat_box">
                 <p class="eat_p">권장 단백질 섭취</p>
                 <h2 id="protein"></h2>
                 <span>Kcal</span>
               </div>
-              <div>
+              <div class="eat_box">
                 <p class="eat_p">권장 지방 섭취</p>
                 <h2 id="fat"></h2>
                 <span>Kcal</span>
@@ -163,16 +173,16 @@
         <!-- 여기까지가 모달창 -->
 
         <div id="info2" class="lower_right_content">
-          <div class="iconbox">
-            <div class="icon icno_item1"></div>
-            <div class="icon icno_item2"></div>
-            <div class="icon icno_item3"></div>
+          <div class="textbox">
+            <div class="text_item"><p>탄수화물</p></div>
+            <div class="text_item"><p>지방</p></div>
+            <div class="text_item"><p>단백질</p></div>
           </div>
           <div class="progressbar_box">
             <!-- 첫번째 바 -->
             <div class="box">
               <div class="progress_info">
-                <span class="tag">탄수화물</span>
+                <span class="tag"><i class="fi fi-rs-bread"></i></span>
                 <span class="user_percent"></span>
               </div>
               <div class="progress_area">
@@ -183,7 +193,7 @@
             <!-- 두번째 바 -->
             <div class="box">
               <div class="progress_info">
-                <span class="tag">지방</span>
+                <span class="tag"><i class="fi fi-br-egg"></i></span>
                 <span class="user_percent"></span>
               </div>
               <div class="progress_area">
@@ -194,7 +204,7 @@
             <!-- 세번째 바 -->
             <div class="box">
               <div class="progress_info">
-                <span class="tag">단백질</span>
+                <span class="tag"><i class="fi fi-rs-meat"></i></span>
                 <span class="user_percent"></span>
               </div>
               <div class="progress_area">
