@@ -188,6 +188,7 @@
           </div>
           <!-- 여기까지가 모달창 -->
 
+
           <div id="info2" class="lower_right_content blur">
             <div class="textbox">
               <div class="text_item"><p>탄수화물</p></div>
@@ -343,9 +344,9 @@
                 class="youtube_search_input"
                 placeholder=""
               />
-              <button id="youtube_btn" class="youtube_search_btn">
+              <div id="youtube_btn" class="youtube_search_btn">
                 <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
+              </div>
             </div>
 
             <div id="youtube_video" class="youtube_video_container"></div>
@@ -367,11 +368,11 @@
                 <textarea
                   id="memo_context"
                   style="width: 100%"
-                  rows="10"
+                  rows="13"
                 ></textarea>
               </div>
             </div>
-            <button onclick="Write_Memo()" class="write_memo_btn">INPUT</button>
+            <div onclick="Write_Memo()" class="write_memo_btn">INPUT</div>
 
             <div class="memo_floor" id="memo_floor"></div>
           </div>
