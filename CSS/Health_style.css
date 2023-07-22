@@ -3,7 +3,6 @@
     border: none;
     display: flex;
     justify-content: center;
-    overflow: scroll;
   }
   .health_box {
     border-radius: 10px;
