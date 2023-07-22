@@ -56,7 +56,7 @@
   </head>
 
   <body>
-    <nav class="nav_bar">
+    <nav class="nav_bar blur">
       <button onclick="Move_health()" class="nav_item">HEALTH</button>
       <button onclick="Move_home()" class="nav_item">HOME</button>
       <button onclick="Move_exercise()" class="nav_item">EXERCISE</button>
@@ -64,7 +64,7 @@
 
     <main>
       <div id="home" style="display: block">
-        <div id="banner" class="banner">
+        <div id="banner" class="banner blur">
           <div class="banner_textbox">
             <div>
               <span class="banner_text1">운동!식단!<br />한번에 다 잡았다</span>
@@ -137,7 +137,7 @@
                   <h2>
                     "
                     <span id="user"></span>
-                    "님의 입력결과
+                    "<br>님의 입력결과
                   </h2>
                 </div>
                 <div class="eat1_div">
@@ -188,7 +188,9 @@
           </div>
           <!-- 여기까지가 모달창 -->
 
-          <div id="info2" class="lower_right_content">
+
+          <div id="info2" class="lower_right_content blur">
+
             <div class="textbox">
               <div class="text_item"><p>탄수화물</p></div>
               <div class="text_item"><p>지방</p></div>
@@ -343,9 +345,9 @@
                 class="youtube_search_input"
                 placeholder=""
               />
-              <button id="youtube_btn" class="youtube_search_btn">
+              <div id="youtube_btn" class="youtube_search_btn">
                 <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
+              </div>
             </div>
 
             <div id="youtube_video" class="youtube_video_container"></div>
@@ -367,11 +369,11 @@
                 <textarea
                   id="memo_context"
                   style="width: 100%"
-                  rows="10"
+                  rows="13"
                 ></textarea>
               </div>
             </div>
-            <button onclick="Write_Memo()" class="write_memo_btn">INPUT</button>
+            <div onclick="Write_Memo()" class="write_memo_btn">INPUT</div>
 
             <div class="memo_floor" id="memo_floor"></div>
           </div>
