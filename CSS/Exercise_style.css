@@ -10,14 +10,10 @@
   flex-direction: column;
   justify-content: flex-start;
   position: relative;
-
   margin: 15px;
   gap: 20px;
 }
 
-.youtube_input_container {
-  display: flex;
-}
 .youtube_search_input {
   padding: 25px;
   width: 100%;
@@ -60,12 +56,11 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-
   height: 83vh;
   width: 40vw;
   justify-content: flex-start;
-
   margin: 0px 15px;
+  padding-bottom: 15px;
 }
 
 .memo_input_container {
@@ -105,7 +100,7 @@ textarea {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   gap: 10px;
 }
@@ -134,10 +129,10 @@ textarea {
 }
 .memo_floor {
   width: 100%;
-  height: 100%;
-
+  height: 96%;
   background-color: #f5f5f5;
   border: 2px solid black;
+  position: relative;
 }
 
 .memo_back {
@@ -147,12 +142,12 @@ textarea {
   font-size: 80px;
 }
 
-.memo_index {
+/* .memo_index {
   position: relative;
   left: 315px;
   bottom: 15px;
   color: white;
-}
+} */
 
 .memo_design {
   width: 200px;
@@ -162,16 +157,16 @@ textarea {
   border: 3px solid black;
   position: absolute;
   overflow: hidden;
-  border: 3px solid black;
   border-radius: 10px;
 }
 .memo_design p {
-  padding: 0px 4px;
+  padding: 4px;
   word-break: keep-all;
 }
 .memo_design h3 {
   background-color: #f4d160;
   word-break: keep-all;
+  padding: 3px
 }
 
 .input_memo_title div,
@@ -191,40 +186,25 @@ textarea,
 }
 
 @media screen and (max-width: 768px) {
+  
   .health_outer_container {
-    display: block;
-    width: 100%;
-  }
-
-  .youtube_video_container {
-    height: 663px;
-    width: auto;
-    margin-top: 20px;
-  }
-
-  .youtube_search_input {
-    padding: 25px;
-    width: 100%;
-    height: 70px;
-    font-size: 20px;
-  }
-
-  .memo_container {
     display: flex;
-    width: auto;
-    gap: 20px;
-    padding-bottom: 20px;
+    flex-direction: column;
   }
-  .input_memo_title input,
-  textarea {
-    padding: 5px;
+  .health_outer_container {
+    height: 150vh;
   }
-  .input_memo_title div,
-  .input_memo_content div {
-    padding-bottom: 10px;
+  .youtube_container {
+    width: 95%;
+    align-items: center;
   }
-
-  .memo_input_container {
-    padding-bottom: 30px;
+  .youtube_video_container {
+    width: 95%;
+  }
+  .youtube_input_container {
+    width: 100%;
+  }
+  .memo_container {
+    width: 95%;
   }
 }
