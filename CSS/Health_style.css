@@ -31,11 +31,10 @@
   border-radius: 10px;
   position: relative;
   background-color: #bfeaf5;
-=======
-    height: 90vh;
-    border: none;
-    display: flex;
-    justify-content: center;
+  height: 90vh;
+  border: none;
+  display: flex;
+  justify-content: center;
   }
   .health_box {
     border-radius: 10px;
@@ -86,10 +85,6 @@
     right: 5%;
     top: 5%;
   }
-
-
- 
-}
 .imformation_box1_box {
   position: absolute;
   /* border: 1px solid black; */
