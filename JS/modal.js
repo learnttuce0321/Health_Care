@@ -15,8 +15,12 @@ $(".login").on("click", function () {
 
 $(".name-next").on("click", function () {
   console.log($("input[name='name']").val());
-  $(".name").toggleClass("show");
-  $(".sex").toggleClass("show");
+  if ($(".name_input").val() == "") {
+    alert("이름을 입력해 주세요");
+  } else {
+    $(".name").toggleClass("show");
+    $(".sex").toggleClass("show");
+  }
 });
 
 $(".sex_select").on("click", function () {
@@ -37,15 +41,23 @@ $('button[name="sex_female"]').on("click", function () {
 $(".weight-next").on("click", function () {
   console.log($("input[name='weight']").val());
   weight = $("input[name='weight']").val();
-  $(".weight").toggleClass("show");
-  $(".kal").toggleClass("show");
+  if ($(".weight_input").val() == "") {
+    alert("체중을 입력해 주세요");
+  } else {
+    $(".weight").toggleClass("show");
+    $(".kal").toggleClass("show");
+  }
 });
 
 $(".kal-next").on("click", function () {
   console.log($("input[name='kal']").val());
   kcal = $("input[name='kal']").val();
-  $(".kal").toggleClass("show");
-  $(".Goal").toggleClass("show");
+  if ($(".kal_input").val() == "") {
+    alert("기초대사량을 입력해 주세요");
+  } else {
+    $(".kal").toggleClass("show");
+    $(".Goal").toggleClass("show");
+  }
 });
 
 $(".goal_select").on("click", function () {
@@ -95,14 +107,15 @@ $(document).ready(function () {
 $(document).ready(function () {
   $(".test").on("click", function () {
     let weight = $('input[name="weight"]').val();
-    $("#weight").text(weight);
+    $("#weight").text(weight + "Kg");
   });
 });
 
 $(document).ready(function () {
   $(".test").on("click", function () {
     let Kcal = $('input[name="kal"]').val();
-    $("#BMR").text(Kcal);
+    console.log(kcal);
+    $("#BMR").text(Kcal + "Kcal");
   });
 });
 
