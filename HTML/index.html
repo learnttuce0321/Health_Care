@@ -81,7 +81,7 @@
 
             <div class="name modal_open">
               <p class="question">이름을 기입해 주세요</p>
-              <input class="modal_input" type="text" name="name" />
+              <input class="modal_input name_input" type="text" name="name" />
               <button class="name-next">다음</button>
             </div>
 
@@ -98,7 +98,11 @@
             <div class="weight modal_open">
               <p class="question">체중을 기입해 주세요</p>
               <div>
-                <input class="modal_input" type="text" name="weight" />
+                <input
+                  class="modal_input weight_input"
+                  type="text"
+                  name="weight"
+                />
                 <span>Kg</span>
               </div>
               <button class="weight-next">다음</button>
@@ -109,7 +113,12 @@
                 최근 한달 내 측정한 기초대사량을 기입해주세요
               </p>
               <div>
-                <input class="modal_input" type="text" name="kal" value="" />
+                <input
+                  class="modal_input kal_input"
+                  type="text"
+                  name="kal"
+                  value=""
+                />
                 <span>Kcal</span>
               </div>
               <button class="kal-next">다음</button>
@@ -148,6 +157,7 @@
                   <div class="eat_divbox">
                     <p>체중</p>
                     <h3 id="weight"></h3>
+                    <p></p>
                   </div>
                 </div>
                 <div class="eat1_div">
@@ -187,8 +197,6 @@
             </div>
           </div>
           <!-- 여기까지가 모달창 -->
-
-
           <div id="info2" class="lower_right_content blur">
 
             <div class="textbox">
@@ -200,7 +208,9 @@
               <!-- 첫번째 바 -->
               <div class="box">
                 <div class="progress_info">
-                  <span class="tag"><i class="fi fi-rs-bread"></i></span>
+                  <span class="tag"
+                    ><i id="빵" class="fi fi-rs-bread ani_act"></i
+                  ></span>
                   <span class="user_percent"></span>
                 </div>
                 <div class="progress_area">
@@ -211,7 +221,7 @@
               <!-- 두번째 바 -->
               <div class="box">
                 <div class="progress_info">
-                  <span class="tag"><i class="fi fi-br-egg"></i></span>
+                  <span class="tag"><i class="fi fi-br-egg ani_act"></i></span>
                   <span class="user_percent"></span>
                 </div>
                 <div class="progress_area">
@@ -222,7 +232,7 @@
               <!-- 세번째 바 -->
               <div class="box">
                 <div class="progress_info">
-                  <span class="tag"><i class="fi fi-rs-meat"></i></span>
+                  <span class="tag"><i class="fi fi-rs-meat ani_act"></i></span>
                   <span class="user_percent"></span>
                 </div>
                 <div class="progress_area">

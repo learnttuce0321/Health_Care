@@ -1,5 +1,4 @@
 #health {
-
   height: 90vh;
   border: none;
   display: flex;
@@ -31,6 +30,7 @@
   border-radius: 10px;
   position: relative;
   background-color: #bfeaf5;
+}
   height: 90vh;
   border: none;
   display: flex;
@@ -224,6 +224,13 @@
   border-radius: 10px;
   padding: 15px;
 }
+
+.nutrien_box {
+  width: 50%;
+  height: 150%;
+  border: 1px solid black;
+}
+
 .meal_container h3 {
   margin-bottom: 10px;
 }

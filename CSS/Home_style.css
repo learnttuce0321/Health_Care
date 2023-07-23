@@ -18,8 +18,6 @@ textarea {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  filter: blur(5px);
-  transition: filter 0.5s ease;
 }
 
 .nav_item {
@@ -59,8 +57,6 @@ main > div {
   background-size: 100vw 40vh;
   z-index: 1;
   opacity: 0.8;
-  filter: blur(5px);
-  transition: filter 0.5s ease;
 }
 .banner_textbox {
   position: absolute;
@@ -97,7 +93,6 @@ main > div {
 }
 
 .lower_left_content {
-  /* border: 3px solid #7a95e6; */
   background-color: #c0eaf5;
   width: 40vw;
   height: 45vh;
@@ -149,6 +144,7 @@ main > div {
   left: 20px;
   color: white;
   font-weight: 800;
+  animation: moving 1s ease-in infinite;
 }
 .user_percent {
   position: relative;
@@ -178,8 +174,8 @@ main > div {
   height: 100%;
   transition: all 5s;
   background-color: #2e8a99;
-  /* left: 30%; */
 }
+
 .textbox {
   width: 15%;
   height: 100%;
@@ -242,4 +238,22 @@ i {
 
 .off_filter_blur {
   filter: blur(0px);
+}
+
+@keyframes moving {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
