@@ -1,3 +1,6 @@
+let memo_count = 1
+let check_modify = false
+
 $(".write_memo_btn").click(function Write_Memo(e) {
   let memo_title = $("#memo_title").val();
   let memo_context = $("#memo_context").val();
@@ -21,6 +24,8 @@ $(".write_memo_btn").click(function Write_Memo(e) {
     memo.find("h3").text(memo_title);
     memo.find("p").text(memo_context);
     $(".write_memo_btn").text("INPUT");
+    check_modify = false
+
   } else {
     const IDBYDATE = Date.now();
 
@@ -67,14 +72,20 @@ $(".write_memo_btn").click(function Write_Memo(e) {
   }
 });
 
-let memo_count = 1;
-
 $(".memo_floor").click(function (e) {
   let target_name = e.target.parentNode.getAttribute("name");
   if (target_name === "delete_btn") {
     delete_memo(e);
   } else if (target_name === "modify_btn") {
-    modify_memo(e);
+    
+    if(!check_modify) {
+      check_modify = true;
+      modify_memo(e);
+    } else {
+      if(confirm('수정을 그만하시겠습니까?')) {
+        stop_modify_memo()
+      }
+    }
   } else if (e.target !== e.currentTarget) {
     e.stopPropagation();
     $(e.target).css("z-index", memo_count++);
@@ -99,4 +110,10 @@ function modify_memo(e) {
   $("#memo_context").val(modify_memo_context);
   $(".write_memo_btn").text("MODIFY");
   $(".write_memo_btn").attr("name", TARGET_ID);
+}
+
+function stop_modify_memo() {
+  $("#memo_title").val("");
+  $("#memo_context").val("");
+  check_modify = false
 }

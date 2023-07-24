@@ -16,6 +16,7 @@ $(".login").on("click", function () {
 $(".name-next").on("click", function () {
   if ($(".name_input").val() == "") {
     alert("이름을 입력해 주세요");
+    $(".name_input").focus()
   } else {
     $(".name").toggleClass("show");
     $(".sex").toggleClass("show");
@@ -39,6 +40,7 @@ $(".weight-next").on("click", function () {
   weight = $("input[name='weight']").val();
   if ($(".weight_input").val() == "") {
     alert("체중을 입력해 주세요");
+    $('input[name="weight"]').focus()
   } else {
     $(".weight").toggleClass("show");
     $(".kal").toggleClass("show");
@@ -49,6 +51,7 @@ $(".kal-next").on("click", function () {
   kcal = $("input[name='kal']").val();
   if ($(".kal_input").val() == "") {
     alert("기초대사량을 입력해 주세요");
+    $(".kal_input").focus()
   } else {
     $(".kal").toggleClass("show");
     $(".Goal").toggleClass("show");
@@ -93,7 +96,6 @@ $(document).ready(function () {
 $(document).ready(function () {
   $(".test").on("click", function () {
     let Kcal = $('input[name="kal"]').val();
-    console.log(kcal);
     $("#BMR").text(Kcal + "Kcal");
   });
 });
@@ -171,6 +173,7 @@ $(document).ready(function () {
   $(".test").on("click", function () {
     eat_fat = Fat();
     $("#fat").html(eat_fat);
+    Render_Main_Progress_Bar()
   });
 });
 
