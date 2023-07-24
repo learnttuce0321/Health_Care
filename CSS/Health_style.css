@@ -31,28 +31,6 @@
   background-color: #bfeaf5;
   filter: blur(5px);
 }
-  .imformation_box1_box {
-    position: absolute;
-    /* border: 1px solid black; */
-  }
-  .imformation_box1_b1 {
-    width: 55%;
-    height: 65%;
-    left: 5%;
-    top: 5%;
-    padding-top: 8%;
-    align-items: center;
-  }
-  .imformation_box1_b2 {
-    padding-top: 8%;
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    height: 65%;
-    right: 5%;
-    top: 5%;
-  }
-
 .imformation_box1_box {
   position: absolute;
   /* border: 1px solid black; */
@@ -192,7 +170,6 @@
   border-radius: 10px;
   padding: 15px;
 }
-
 .morning_container,
 .lunch_container,
 .dinner_container,
@@ -200,12 +177,6 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
-}
-
-.nutrien_box {
-  width: 50%;
-  height: 150%;
-  border: 1px solid black;
 }
 
 .meal_container h3 {
