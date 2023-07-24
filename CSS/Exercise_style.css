@@ -148,7 +148,10 @@ textarea {
   bottom: 15px;
   color: white;
 } */
-
+.btn_container {
+  display: flex;
+  gap: 10px;
+}
 .memo_design {
   width: 200px;
   height: 200px;
@@ -161,12 +164,12 @@ textarea {
 }
 .memo_design p {
   padding: 4px;
-  word-break: keep-all;
+  word-wrap: break-word;
 }
-.memo_design h3 {
+.memo_title_container {
   background-color: #f4d160;
   word-break: keep-all;
-  padding: 3px
+  padding: 3px;
 }
 
 .input_memo_title div,
@@ -174,19 +177,12 @@ textarea {
   padding-bottom: 10px;
 }
 
-.youtube_search_input,
-.input_memo_title div,
-.input_memo_content div,
-.input_memo_title input,
-textarea,
-.memo_design,
-.memo_design p,
-.memo_design h3 {
-  font-family: "NanumSquareNeo-Variable";
+.memo_title_container {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 768px) {
-  
   .health_outer_container {
     display: flex;
     flex-direction: column;
