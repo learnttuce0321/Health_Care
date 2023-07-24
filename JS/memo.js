@@ -35,6 +35,8 @@ function Write_Memo() {
 
 let memo_count = 1;
 $('.memo_floor').click(function(e) {
+    console.log(e.target)
+    console.log(e.currentTarget)
     if(e.target !== e.currentTarget) {
         e.stopPropagation()
         $(e.target).css('z-index', memo_count++)
