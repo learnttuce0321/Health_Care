@@ -3,6 +3,7 @@ let have_carbohydrate = "";
 let have_protein = "";
 let have_fat = "";
 
+
 let have_breakfast = {
   kcal: 0,
   carbohydrate: 0,
@@ -26,6 +27,13 @@ let have_snack = {
   carbohydrate: 0,
   protein: 0,
   fat: 0,
+
+let breakfast = {
+  kcal: "",
+  carbohydrate: "",
+  protein: "",
+  fat: "",
+
 };
 
 const NUTRIAPIKEY = "052ddfc6009045afa54e";
@@ -63,7 +71,9 @@ $(".food_submit").click(function (e) {
   let food_name = $(".food_input").val();
   let food_count = $(".food_input_count").val();
 
+
   //console.log(food_info.NUTR_CONT1 * food_count);
+
 
   if (!food_info) {
     console.log("break");
@@ -79,7 +89,9 @@ $(".food_submit").click(function (e) {
   left_Percent_info();
   left_Percent_Kcal_info();
   Circle_Progress_Bar();
+
   add_kcal(food_info, food_count, e);
+
 });
 
 function lower_food_info(food_info) {
@@ -296,6 +308,7 @@ function Clear_nutrition() {
   total_kcal = 0;
 }
 
+
 function add_kcal(food_info, food_count, e) {
   // 아침-----------------------------------------------------------
   if (e.target.name == "morning") {
@@ -375,3 +388,4 @@ function add_kcal(food_info, food_count, e) {
       .text(`지방:${Math.round(have_snack.fat)}`);
   }
 }
+
