@@ -192,6 +192,7 @@
   border-radius: 10px;
   padding: 15px;
 }
+
 .morning_container,
 .lunch_container,
 .dinner_container,
@@ -210,20 +211,24 @@
 .meal_container h3 {
   margin-bottom: 10px;
   height: 10px;
+  width: fit-content;
 }
 
 .meal {
-  width: 100%;
   height: 70%;
   display: flex;
   gap: 10px;
-  overflow-y: hidden;
-  overflow-x: overlay;
   margin-top: 10px;
+  overflow-x: scroll;
 }
+
+.meal::-webkit-scrollbar {
+  width: 0;
+}
+
 .meal div {
   padding: 15px;
-  /* max-width: 25%; */
+  min-width: 140px;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -71,7 +71,6 @@ $(".food_submit").click(function (e) {
   let food_count = $(".food_input_count").val();
 
   if (!food_info) {
-    console.log("break");
     return false;
   }
 
@@ -99,10 +98,10 @@ function lower_food_info(food_info) {
     info_div.style.display = 'flex';
     info_div.style.justifyContent = 'space-around';
   
-    info_div.appendChild(Create_Nutritional_Info('kcal', food_info.NUTR_CONT1));
-    info_div.appendChild(Create_Nutritional_Info('탄수화물', food_info.NUTR_CONT2));
-    info_div.appendChild(Create_Nutritional_Info('단백질', food_info.NUTR_CONT3));
-    info_div.appendChild(Create_Nutritional_Info('지방', food_info.NUTR_CONT4));
+    info_div.appendChild(Create_Nutritional_Info('kcal', food_info.NUTR_CONT1 || '0'));
+    info_div.appendChild(Create_Nutritional_Info('탄수화물', food_info.NUTR_CONT2 || '0'));
+    info_div.appendChild(Create_Nutritional_Info('단백질', food_info.NUTR_CONT3 || '0'));
+    info_div.appendChild(Create_Nutritional_Info('지방', food_info.NUTR_CONT4 || '0'));
   
     food_info_box.appendChild(food_info_name);
     food_info_box.appendChild(info_div);
@@ -122,7 +121,7 @@ const Create_Nutritional_Info = (title, value) => {
 
 function right_food_info(food_info, food_name, food_count, e) {
     
-    let items = $('.meal div[id]')
+    let items = $(`#${e.target.name} div[id]`)
     let this_item = items.filter(`#${food_name}`)
     
     if(this_item.length) {
@@ -157,16 +156,16 @@ function Render_Main_Progress_Bar() {
 
   let user_percent = $(".user_percent");
   let user_progress = $(".progress");
+  let tmp_percentage = 0
 
   $(user_percent[0]).text(tan + "%");
-  $(user_progress[0]).css("width", `${tan}%`);
-
   $(user_percent[1]).text(fat + "%");
-  $(user_progress[1]).css("width", `${fat}%`);
-
   $(user_percent[2]).text(prt + "%");
-  $(user_progress[2]).css("width", `${prt}%`);
 
+  $(user_progress[0]).css("width", `${tan}%`);
+  $(user_progress[1]).css("width", `${fat}%`);
+  $(user_progress[2]).css("width", `${prt}%`);
+  
   Clear_nutrition();
 }
 function Render_Health_Progress_Bar() {
@@ -263,18 +262,10 @@ function add_kcal(food_info, food_count, e) {
     have_breakfast.protein += Number(food_info.NUTR_CONT3) * food_count;
     have_breakfast.fat += Number(food_info.NUTR_CONT4) * food_count;
 
-    $(".morning_container")
-      .children("p:eq(0)")
-      .text(`칼로리:${Math.round(have_breakfast.kcal)}`);
-    $(".morning_container")
-      .children("p:eq(1)")
-      .text(`탄수화물:${Math.round(have_breakfast.carbohydrate)}`);
-    $(".morning_container")
-      .children("p:eq(2)")
-      .text(`단백질:${Math.round(have_breakfast.protein)}`);
-    $(".morning_container")
-      .children("p:eq(3)")
-      .text(`지방:${Math.round(have_breakfast.fat)}`);
+    $(".morning_container p").eq(0).text(`칼로리:${Math.round(have_breakfast.kcal)}`);
+    $(".morning_container p").eq(1).text(`탄수화물:${Math.round(have_breakfast.carbohydrate)}`);
+    $(".morning_container p").eq(2).text(`단백질:${Math.round(have_breakfast.protein)}`);
+    $(".morning_container p").eq(3).text(`지방:${Math.round(have_breakfast.fat)}`);
     // 점심--------------------------------------------------------------
   } else if (e.target.name == "lunch") {
     have_lunch.kcal += Number(food_info.NUTR_CONT1) * food_count;
@@ -282,18 +273,10 @@ function add_kcal(food_info, food_count, e) {
     have_lunch.protein += Number(food_info.NUTR_CONT3) * food_count;
     have_lunch.fat += Number(food_info.NUTR_CONT4) * food_count;
 
-    $(".lunch_container")
-      .children("p:eq(0)")
-      .text(`칼로리:${Math.round(have_lunch.kcal)}`);
-    $(".lunch_container")
-      .children("p:eq(1)")
-      .text(`탄수화물:${Math.round(have_lunch.carbohydrate)}`);
-    $(".lunch_container")
-      .children("p:eq(2)")
-      .text(`단백질:${Math.round(have_lunch.protein)}`);
-    $(".lunch_container")
-      .children("p:eq(3)")
-      .text(`지방:${Math.round(have_lunch.fat)}`);
+    $(".lunch_container p").eq(0).text(`칼로리:${Math.round(have_lunch.kcal)}`);
+    $(".lunch_container p").eq(1).text(`탄수화물:${Math.round(have_lunch.carbohydrate)}`);
+    $(".lunch_container p").eq(2).text(`단백질:${Math.round(have_lunch.protein)}`);
+    $(".lunch_container p").eq(3).text(`지방:${Math.round(have_lunch.fat)}`);
     // 저녁----------------------------------------------------------
   } else if (e.target.name == "dinner") {
     have_dinner.kcal += Number(food_info.NUTR_CONT1) * food_count;
@@ -301,18 +284,10 @@ function add_kcal(food_info, food_count, e) {
     have_dinner.protein += Number(food_info.NUTR_CONT3) * food_count;
     have_dinner.fat += Number(food_info.NUTR_CONT4) * food_count;
 
-    $(".dinner_container")
-      .children("p:eq(0)")
-      .text(`칼로리:${Math.round(have_dinner.kcal)}`);
-    $(".dinner_container")
-      .children("p:eq(1)")
-      .text(`탄수화물:${Math.round(have_dinner.carbohydrate)}`);
-    $(".dinner_container")
-      .children("p:eq(2)")
-      .text(`단백질:${Math.round(have_dinner.protein)}`);
-    $(".dinner_container")
-      .children("p:eq(3)")
-      .text(`지방:${Math.round(have_dinner.fat)}`);
+    $(".dinner_container p").eq(0).text(`칼로리:${Math.round(have_dinner.kcal)}`);
+    $(".dinner_container p").eq(1).text(`탄수화물:${Math.round(have_dinner.carbohydrate)}`);
+    $(".dinner_container p").eq(2).text(`단백질:${Math.round(have_dinner.protein)}`);
+    $(".dinner_container p").eq(3).text(`지방:${Math.round(have_dinner.fat)}`);
     // 간식-----------------------------------------------------------------
   } else {
     have_snack.kcal += Number(food_info.NUTR_CONT1) * food_count;
@@ -320,17 +295,9 @@ function add_kcal(food_info, food_count, e) {
     have_snack.protein += Number(food_info.NUTR_CONT3) * food_count;
     have_snack.fat += Number(food_info.NUTR_CONT4) * food_count;
 
-    $(".snack_container")
-      .children("p:eq(0)")
-      .text(`칼로리:${Math.round(have_snack.kcal)}`);
-    $(".snack_container")
-      .children("p:eq(1)")
-      .text(`탄수화물:${Math.round(have_snack.carbohydrate)}`);
-    $(".snack_container")
-      .children("p:eq(2)")
-      .text(`단백질:${Math.round(have_snack.protein)}`);
-    $(".snack_container")
-      .children("p:eq(3)")
-      .text(`지방:${Math.round(have_snack.fat)}`);
+    $(".snack_container p").eq(0).text(`칼로리:${Math.round(have_snack.kcal)}`);
+    $(".snack_container p").eq(1).text(`탄수화물:${Math.round(have_snack.carbohydrate)}`);
+    $(".snack_container p").eq(2).text(`단백질:${Math.round(have_snack.protein)}`);
+    $(".snack_container p").eq(3).text(`지방:${Math.round(have_snack.fat)}`);
   }
 }
