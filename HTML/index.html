@@ -6,10 +6,6 @@
     <link rel="stylesheet" href="../CSS/modal.css" />
     <link rel="stylesheet" href="../CSS/Health_style.css" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
@@ -20,15 +16,19 @@
         font-weight: normal;
         font-style: normal;
       }
-      @font-face {
+      /* @font-face {
         font-family: "NanumSquareNeo-Variable";
         src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2")
           format("woff2");
         font-weight: normal;
         font-style: normal;
-      }
+      } */
     </style>
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <script
       src="https://code.jquery.com/jquery-3.7.0.js"
       integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
@@ -52,6 +52,15 @@
       rel="stylesheet"
       href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css"
+    />
+
     <title>HEALTH CARE</title>
   </head>
 
@@ -406,10 +415,11 @@
                   id="memo_context"
                   style="width: 100%"
                   rows="13"
+                  placeholder="내용을 입력해주세요."
                 ></textarea>
               </div>
             </div>
-            <div onclick="Write_Memo()" class="write_memo_btn">INPUT</div>
+            <div class="write_memo_btn">INPUT</div>
 
             <div class="memo_floor" id="memo_floor"></div>
           </div>
