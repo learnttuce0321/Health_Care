@@ -14,13 +14,10 @@ $(".login").on("click", function () {
 });
 
 $(".name-next").on("click", function () {
-  console.log($("input[name='name']").val());
-  if ($(".name_input").val() == "") {
-    alert("이름을 입력해 주세요");
-  } else {
-    $(".name").toggleClass("show");
-    $(".sex").toggleClass("show");
-  }
+
+  $(".name").toggleClass("show");
+  $(".sex").toggleClass("show");
+
 });
 
 $(".sex_select").on("click", function () {

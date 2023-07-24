@@ -2,11 +2,38 @@ let have_kcal = "";
 let have_carbohydrate = "";
 let have_protein = "";
 let have_fat = "";
+
+
+let have_breakfast = {
+  kcal: 0,
+  carbohydrate: 0,
+  protein: 0,
+  fat: 0,
+};
+let have_lunch = {
+  kcal: 0,
+  carbohydrate: 0,
+  protein: 0,
+  fat: 0,
+};
+let have_dinner = {
+  kcal: 0,
+  carbohydrate: 0,
+  protein: 0,
+  fat: 0,
+};
+let have_snack = {
+  kcal: 0,
+  carbohydrate: 0,
+  protein: 0,
+  fat: 0,
+
 let breakfast = {
   kcal: "",
   carbohydrate: "",
   protein: "",
   fat: "",
+
 };
 
 const NUTRIAPIKEY = "052ddfc6009045afa54e";
@@ -44,6 +71,10 @@ $(".food_submit").click(function (e) {
   let food_name = $(".food_input").val();
   let food_count = $(".food_input_count").val();
 
+
+  //console.log(food_info.NUTR_CONT1 * food_count);
+
+
   if (!food_info) {
     console.log("break");
     return false;
@@ -58,6 +89,9 @@ $(".food_submit").click(function (e) {
   left_Percent_info();
   left_Percent_Kcal_info();
   Circle_Progress_Bar();
+
+  add_kcal(food_info, food_count, e);
+
 });
 
 function lower_food_info(food_info) {
@@ -273,3 +307,85 @@ function Clear_nutrition() {
   fat = 0;
   total_kcal = 0;
 }
+
+
+function add_kcal(food_info, food_count, e) {
+  // 아침-----------------------------------------------------------
+  if (e.target.name == "morning") {
+    have_breakfast.kcal += Number(food_info.NUTR_CONT1) * food_count;
+    have_breakfast.carbohydrate += Number(food_info.NUTR_CONT2) * food_count;
+    have_breakfast.protein += Number(food_info.NUTR_CONT3) * food_count;
+    have_breakfast.fat += Number(food_info.NUTR_CONT4) * food_count;
+
+    $(".morning_container")
+      .children("p:eq(0)")
+      .text(`칼로리:${Math.round(have_breakfast.kcal)}`);
+    $(".morning_container")
+      .children("p:eq(1)")
+      .text(`탄수화물:${Math.round(have_breakfast.carbohydrate)}`);
+    $(".morning_container")
+      .children("p:eq(2)")
+      .text(`단백질:${Math.round(have_breakfast.protein)}`);
+    $(".morning_container")
+      .children("p:eq(3)")
+      .text(`지방:${Math.round(have_breakfast.fat)}`);
+    // 점심--------------------------------------------------------------
+  } else if (e.target.name == "lunch") {
+    have_lunch.kcal += Number(food_info.NUTR_CONT1) * food_count;
+    have_lunch.carbohydrate += Number(food_info.NUTR_CONT2) * food_count;
+    have_lunch.protein += Number(food_info.NUTR_CONT3) * food_count;
+    have_lunch.fat += Number(food_info.NUTR_CONT4) * food_count;
+
+    $(".lunch_container")
+      .children("p:eq(0)")
+      .text(`칼로리:${Math.round(have_lunch.kcal)}`);
+    $(".lunch_container")
+      .children("p:eq(1)")
+      .text(`탄수화물:${Math.round(have_lunch.carbohydrate)}`);
+    $(".lunch_container")
+      .children("p:eq(2)")
+      .text(`단백질:${Math.round(have_lunch.protein)}`);
+    $(".lunch_container")
+      .children("p:eq(3)")
+      .text(`지방:${Math.round(have_lunch.fat)}`);
+    // 저녁----------------------------------------------------------
+  } else if (e.target.name == "dinner") {
+    have_dinner.kcal += Number(food_info.NUTR_CONT1) * food_count;
+    have_dinner.carbohydrate += Number(food_info.NUTR_CONT2) * food_count;
+    have_dinner.protein += Number(food_info.NUTR_CONT3) * food_count;
+    have_dinner.fat += Number(food_info.NUTR_CONT4) * food_count;
+
+    $(".dinner_container")
+      .children("p:eq(0)")
+      .text(`칼로리:${Math.round(have_dinner.kcal)}`);
+    $(".dinner_container")
+      .children("p:eq(1)")
+      .text(`탄수화물:${Math.round(have_dinner.carbohydrate)}`);
+    $(".dinner_container")
+      .children("p:eq(2)")
+      .text(`단백질:${Math.round(have_dinner.protein)}`);
+    $(".dinner_container")
+      .children("p:eq(3)")
+      .text(`지방:${Math.round(have_dinner.fat)}`);
+    // 간식-----------------------------------------------------------------
+  } else {
+    have_snack.kcal += Number(food_info.NUTR_CONT1) * food_count;
+    have_snack.carbohydrate += Number(food_info.NUTR_CONT2) * food_count;
+    have_snack.protein += Number(food_info.NUTR_CONT3) * food_count;
+    have_snack.fat += Number(food_info.NUTR_CONT4) * food_count;
+
+    $(".snack_container")
+      .children("p:eq(0)")
+      .text(`칼로리:${Math.round(have_snack.kcal)}`);
+    $(".snack_container")
+      .children("p:eq(1)")
+      .text(`탄수화물:${Math.round(have_snack.carbohydrate)}`);
+    $(".snack_container")
+      .children("p:eq(2)")
+      .text(`단백질:${Math.round(have_snack.protein)}`);
+    $(".snack_container")
+      .children("p:eq(3)")
+      .text(`지방:${Math.round(have_snack.fat)}`);
+  }
+}
+
