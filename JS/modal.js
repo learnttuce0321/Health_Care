@@ -14,9 +14,12 @@ $(".login").on("click", function () {
 });
 
 $(".name-next").on("click", function () {
-  $(".name").toggleClass("show");
-  $(".sex").toggleClass("show");
-
+  if ($(".name_input").val() == "") {
+    alert("이름을 입력해 주세요");
+  } else {
+    $(".name").toggleClass("show");
+    $(".sex").toggleClass("show");
+  }
 });
 
 $(".sex_select").on("click", function () {
@@ -70,7 +73,7 @@ $(".goal_select").on("click", function () {
 $(document).ready(function () {
   $(".test").on("click", function () {
     let name = $('input[name="name"]').val();
-    $("#user").text(name);
+    $(".user").text(name);
   });
 });
 

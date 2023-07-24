@@ -58,6 +58,10 @@
     />
     <link
       rel="stylesheet"
+
+      href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+
       href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css"
     />
 
@@ -73,14 +77,34 @@
 
     <main>
       <div id="home" style="display: block">
-        <div id="banner" class="banner blur">
-          <div class="banner_textbox">
-            <div>
-              <span class="banner_text1">운동!식단!<br />한번에 다 잡았다</span>
-              <br />
-              <span class="banner_text2"> -코딩온GYM-</span>
+        <div class="carousel_container">
+          <button class="prev" type="button">
+            <p><i class="fi fi-rr-angle-double-small-left prev_icon"></i></p>
+          </button>
+          <div class="carousel">
+            <div id="banner" class="banner">
+              <div class="banner_textbox carousel_box">
+                <div class="banner_textbox2">
+                  <span class="banner_text1"
+                    >운동!식단!<br />한번에 다 잡았다</span
+                  >
+                  <br />
+                  <span class="banner_text2"> -코딩온GYM-</span>
+                </div>
+              </div>
             </div>
+
+            <div id="carousel_box2" class="carousel_box2">
+              <div class="carousel_text2">
+                <h2><span class="user"></span>, 넌 쇠질이 제일 어울려</h2>
+              </div>
+            </div>
+
+            <div id="carousel_box3" class="carousel_box3"></div>
           </div>
+          <button class="next" type="button">
+            <p><i class="fi fi-rr-angle-double-small-right next_icon"></i></p>
+          </button>
         </div>
         <!-- 여기까지 배너창  -------------------------------------------------------------------------------------------------------->
         <div id="inner_content" class="lower_content">
@@ -141,7 +165,11 @@
               <button class="goal_select test" data-goal="slow" value="slow">
                 느린 다이어트
               </button>
-              <button class="goal_select test" data-goal="muscle" value="muscle">
+              <button
+                class="goal_select test"
+                data-goal="muscle"
+                value="muscle"
+              >
                 근육량 증가
               </button>
               <button class="goal_select test" data-goal="bulk" value="bulk">
@@ -154,7 +182,7 @@
                 <div class="user_name">
                   <h2>
                     "
-                    <span id="user"></span>
+                    <span class="user"></span>
                     "<br />님의 입력결과
                   </h2>
                 </div>
@@ -336,10 +364,10 @@
             <div class="meal_container">
               <div class="morning_container">
                 <h3>아침</h3>
-                <p>칼로리: 0</p>
-                <p>탄수화물: 0</p>
-                <p>단백질: 0</p>
-                <p>지방: 0</p>
+                <div class="pill"><p>칼로리: 0</p></div>
+                <div class="pill"><p>탄수화물: 0</p></div>
+                <div class="pill"><p>단백질: 0</p></div>
+                <div class="pill"><p>지방: 0</p></div>
               </div>
               <div class="meal" id="morning"></div>
             </div>
@@ -347,10 +375,10 @@
             <div class="meal_container">
               <div class="lunch_container">
                 <h3>점심</h3>
-                <p>칼로리: 0</p>
-                <p>탄수화물: 0</p>
-                <p>단백질: 0</p>
-                <p>지방: 0</p>
+                <div class="pill"><p>칼로리: 0</p></div>
+                <div class="pill"><p>탄수화물: 0</p></div>
+                <div class="pill"><p>단백질: 0</p></div>
+                <div class="pill"><p>지방: 0</p></div>
               </div>
               <div class="meal" id="lunch"></div>
             </div>
@@ -358,10 +386,10 @@
             <div class="meal_container">
               <div class="dinner_container">
                 <h3>저녁</h3>
-                <p>칼로리: 0</p>
-                <p>탄수화물: 0</p>
-                <p>단백질: 0</p>
-                <p>지방: 0</p>
+                <div class="pill"><p>칼로리: 0</p></div>
+                <div class="pill"><p>탄수화물: 0</p></div>
+                <div class="pill"><p>단백질: 0</p></div>
+                <div class="pill"><p>지방: 0</p></div>
               </div>
               <div class="meal" id="dinner"></div>
             </div>
@@ -369,10 +397,10 @@
             <div class="meal_container">
               <div class="snack_container">
                 <h3>간식</h3>
-                <p>칼로리: 0</p>
-                <p>탄수화물: 0</p>
-                <p>단백질: 0</p>
-                <p>지방: 0</p>
+                <div class="pill"><p>칼로리: 0</p></div>
+                <div class="pill"><p>탄수화물: 0</p></div>
+                <div class="pill"><p>단백질: 0</p></div>
+                <div class="pill"><p>지방: 0</p></div>
               </div>
               <div class="meal" id="snack"></div>
             </div>
@@ -433,6 +461,7 @@
     <script src="../JS/memo.js"></script>
     <script src="../JS/Main_Progress_bar.js"></script>
     <script src="../JS/Get_nutrition.js"></script>
+    <script src="../JS/carousel.js"></script>
     <!-- <script src="../JS/Health_Circle_Progress_Bar.js"></script> -->
   </body>
 </html>
