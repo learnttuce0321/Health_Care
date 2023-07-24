@@ -14,7 +14,6 @@ $(".login").on("click", function () {
 });
 
 $(".name-next").on("click", function () {
-  console.log($("input[name='name']").val());
   $(".name").toggleClass("show");
   $(".sex").toggleClass("show");
 });
