@@ -21,7 +21,6 @@ function Move_health() {
     Render_Health_Progress_Bar();
     Render_Left_Lower_content();
     Render_Circle_Progress_Bar();
-    Appear_info();
   }
 }
 
@@ -31,8 +30,4 @@ function Move_exercise() {
   document.getElementById("home").style.display = "none";
 
   document.getElementById("health").style.display = "none";
-}
-
-function Appear_info() {
-  $(".imformation_box1").css("filter", "none");
 }

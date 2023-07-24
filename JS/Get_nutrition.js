@@ -53,81 +53,49 @@ $('.food_submit').click(function(e) {
 
     lower_food_info(food_info)
     right_food_info(food_info, food_name, food_count, e)
-    
-    Cal_Have_Food(food_info, food_count)
-    left_Percent_info()
-    left_Percent_Kcal_info()
-    Circle_Progress_Bar()
+    Cal_Have_Food_Number(food_info, food_count)
+    Handle_Left_Info_Content()
 })
 
-
+//왼쪽 아래 음식 하나에 대한 정보
 function lower_food_info(food_info) {
-    document.querySelector('#food_info_box').innerHTML = ""
+    const food_info_box = document.querySelector('#food_info_box');
+    food_info_box.innerHTML = "";
+  
+    const food_info_name = document.createElement('h3');
+    food_info_name.innerText = `${food_info.DESC_KOR}(1회 제공량)`;
+  
+    const info_div = document.createElement('div');
+    info_div.style.display = 'flex';
+    info_div.style.justifyContent = 'space-around';
+  
+    info_div.appendChild(Create_Nutritional_Info('kcal', food_info.NUTR_CONT1));
+    info_div.appendChild(Create_Nutritional_Info('탄수화물', food_info.NUTR_CONT2));
+    info_div.appendChild(Create_Nutritional_Info('단백질', food_info.NUTR_CONT3));
+    info_div.appendChild(Create_Nutritional_Info('지방', food_info.NUTR_CONT4));
+  
+    food_info_box.appendChild(food_info_name);
+    food_info_box.appendChild(info_div);
 
-    let food_info_name = document.createElement('h3')
-    food_info_name.innerText = food_info.DESC_KOR + '(1회 제공량)'
-
-    let food_info_kcal_div = document.createElement('div')
-    let food_info_kcal_title = document.createElement('p')
-    food_info_kcal_title.innerText = 'kcal'
-    let food_info_kcal_content =document.createElement('h2')
-    food_info_kcal_content.innerText = food_info.NUTR_CONT1
-    food_info_kcal_div.appendChild(food_info_kcal_content)
-    food_info_kcal_div.appendChild(food_info_kcal_title)
-
-    let food_info_tan_div = document.createElement('div')
-    let food_info_tan_title = document.createElement('p')
-    food_info_tan_title.innerText = '탄수화물'
-    let food_info_tan_content =document.createElement('h2')
-    food_info_tan_content.innerText = food_info.NUTR_CONT2
-    food_info_tan_div.appendChild(food_info_tan_content)
-    food_info_tan_div.appendChild(food_info_tan_title)
-
-    let food_info_dan_div = document.createElement('div')
-    let food_info_dan_title = document.createElement('p')
-    food_info_dan_title.innerText = '단백질'
-    let food_info_dan_content =document.createElement('h2')
-    food_info_dan_content.innerText = food_info.NUTR_CONT3
-    food_info_dan_div.appendChild(food_info_dan_content)
-    food_info_dan_div.appendChild(food_info_dan_title)
-
-    let food_info_fat_div = document.createElement('div')
-    let food_info_fat_title = document.createElement('p')
-    food_info_fat_title.innerText = '지방'
-    let food_info_fat_content =document.createElement('h2')
-    food_info_fat_content.innerText = food_info.NUTR_CONT4
-    food_info_fat_div.appendChild(food_info_fat_content)
-    food_info_fat_div.appendChild(food_info_fat_title)
-
-    let info_div = document.createElement('div')
-    info_div.style.display = 'flex'
-    info_div.style.justifyContent ='space-around'
-    info_div.appendChild(food_info_kcal_div)
-    info_div.appendChild(food_info_tan_div)
-    info_div.appendChild(food_info_dan_div)
-    info_div.appendChild(food_info_fat_div)
-
-    document.querySelector('#food_info_box').appendChild(food_info_name)
-    document.querySelector('#food_info_box').appendChild(info_div)
 }
-
+const Create_Nutritional_Info = (title, value) => {
+    const div = document.createElement('div');
+    const titleElement = document.createElement('p');
+    titleElement.innerText = title;
+    const valueElement = document.createElement('h2');
+    valueElement.innerText = value;
+    div.appendChild(valueElement);
+    div.appendChild(titleElement);
+    return div;
+};
+  
 
 function right_food_info(food_info, food_name, food_count, e) {
     
     let items = $('.meal div[id]')
-    let this_item = null
-    let check = false
-
-    for(let i=0; i<items.length; i++) {
-        if(items[i].id === food_name) {
-            check = true
-            this_item = items[i]
-            break
-        }
-    }
+    let this_item = items.filter(`#${food_name}`)
     
-    
-    if(check) {
+    if(this_item.length) {
         let count = parseInt($(this_item).children('p').text())
         count += Number(food_count)
         $(this_item).children('p').text(count+' 개')
@@ -146,34 +114,17 @@ function right_food_info(food_info, food_name, food_count, e) {
     }
 }
 
-
-function Cal_Have_Food(food_info, food_count) {
-    have_kcal = String(Number(have_kcal) + Number(food_info.NUTR_CONT1)*food_count)
-    have_carbohydrate = String(Number(have_carbohydrate) + Number(food_info.NUTR_CONT2)*food_count)
-    have_protein = String(Number(have_protein) + Number(food_info.NUTR_CONT3)*food_count)
-    have_fat = String(Number(have_fat) + Number(food_info.NUTR_CONT4)*food_count)
-}
-
-
-function Circle_Progress_Bar() {
-    if(check_sign) {
-        Circle_Progress_Bar_content()
-    }
-}
-function left_Percent_info() {
-    if(check_sign) {
-        left_progress_content()
-    }
-}
-function left_Percent_Kcal_info() {
-    if(check_sign) {
-        left_lower_content()
+function Handle_Left_Info_Content() {
+    if (check_sign) {
+        left_progress_content();
+        left_lower_content();
+        Circle_Progress_Bar_content();
     }
 }
 
 
 function Render_Main_Progress_Bar() {
-    Progress_Bar_Number()
+    Cal_Progress_Bar_Number()
 
     let user_percent = $(".user_percent");
     let user_progress = $(".progress");
@@ -203,7 +154,7 @@ function Render_Circle_Progress_Bar() {
 
 
 function left_progress_content() {
-    Progress_Bar_Number()
+    Cal_Progress_Bar_Number()
 
     let user_percent = $('.nutrien>h2')
 
@@ -239,28 +190,35 @@ function left_lower_content() {
 }
 function Circle_Progress_Bar_content() {
     let control = document.getElementById("control");
-        let bar = document.querySelector(".bar");
-        let value = document.querySelector(".value");
+    let bar = document.querySelector(".bar");
+    let value = document.querySelector(".value");
 
-        const RADIUS = 54;
-        const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+    const RADIUS = 54;
+    const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
-        let progress = Number(have_kcal)/eat_kcal;
-        if(progress > 1) {
-            progress = 1
-        }
-        let dashoffset = CIRCUMFERENCE * (1 - progress);
+    let progress = Number(have_kcal)/eat_kcal;
+    if(progress > 1) {
+        progress = 1
+    }
+    let dashoffset = CIRCUMFERENCE * (1 - progress);
 
-        value.innerHTML = total_kcal+ "%kcal";
-        bar.style.strokeDashoffset = dashoffset;
-        bar.style.strokeDasharray = CIRCUMFERENCE;
+    value.innerHTML = total_kcal+ "%";
+    bar.style.strokeDashoffset = dashoffset;
+    bar.style.strokeDasharray = CIRCUMFERENCE;
 }
 
 
-function Progress_Bar_Number() {
+function Cal_Progress_Bar_Number() {
     tan += Math.round(Number(have_carbohydrate)*4*100/eat_carbohydrate)
     prt += Math.round(Number(have_protein)*4*100/eat_protein)
     fat += Math.round(Number(have_fat)*9*100/eat_fat)
+}
+
+function Cal_Have_Food_Number(food_info, food_count) {
+    have_kcal = String(Number(have_kcal) + Number(food_info.NUTR_CONT1)*food_count)
+    have_carbohydrate = String(Number(have_carbohydrate) + Number(food_info.NUTR_CONT2)*food_count)
+    have_protein = String(Number(have_protein) + Number(food_info.NUTR_CONT3)*food_count)
+    have_fat = String(Number(have_fat) + Number(food_info.NUTR_CONT4)*food_count)
 }
 
 

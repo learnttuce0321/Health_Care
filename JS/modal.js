@@ -14,7 +14,6 @@ $(".login").on("click", function () {
 });
 
 $(".name-next").on("click", function () {
-  console.log($("input[name='name']").val());
   $(".name").toggleClass("show");
   $(".sex").toggleClass("show");
 });
@@ -25,24 +24,20 @@ $(".sex_select").on("click", function () {
 });
 
 $('button[name="sex_male"]').on("click", function () {
-  console.log($("button[name='sex_male']").val());
   sex = $("button[name='sex_male']").val();
 });
 
 $('button[name="sex_female"]').on("click", function () {
-  console.log($("button[name='sex_female']").val());
   sex = $("button[name='sex_female']").val();
 });
 
 $(".weight-next").on("click", function () {
-  console.log($("input[name='weight']").val());
   weight = $("input[name='weight']").val();
   $(".weight").toggleClass("show");
   $(".kal").toggleClass("show");
 });
 
 $(".kal-next").on("click", function () {
-  console.log($("input[name='kal']").val());
   kcal = $("input[name='kal']").val();
   $(".kal").toggleClass("show");
   $(".Goal").toggleClass("show");
@@ -52,31 +47,15 @@ $(".goal_select").on("click", function () {
   $(".Goal").toggleClass("show");
   $(".result").toggleClass("show");
   check_sign = true;
-  console.log(check_sign);
 });
 
 $(".exit").on("click", function () {
   $(".result").toggleClass("show");
 });
 
-$("button[name='fast']").on("click", function () {
-  console.log($("button[name='fast']").val());
-  goal = $("button[name='fast']").val();
-});
-
-$("button[name='slow']").on("click", function () {
-  console.log($("button[name='slow']").val());
-  goal = $("button[name='slow']").val();
-});
-
-$("button[name='muscle']").on("click", function () {
-  console.log($("button[name='muscle']").val());
-  goal = $("button[name='muscle']").val();
-});
-
-$("button[name='bulk']").on("click", function () {
-  console.log($("button[name='bulk']").val());
-  goal = $("button[name='bulk']").val();
+$(".goal_select").on("click", function () {
+  const goalValue = $(this).data("goal");
+  goal = goalValue;
 });
 //-- 여기서부터는 결과창에 데이터입력을 위한 함수----------------------------------------------------
 $(document).ready(function () {
@@ -117,7 +96,7 @@ $(document).ready(function () {
 $(document).ready(function () {
   $(".test").on("click", function () {
     eat_kcal = Eat_Kcal_Progess();
-    console.log(eat_kcal);
+
     $("#eat_kcal").html(eat_kcal);
   });
 });
