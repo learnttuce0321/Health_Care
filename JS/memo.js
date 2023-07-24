@@ -68,6 +68,7 @@ $(".write_memo_btn").click(function Write_Memo(e) {
 });
 
 let memo_count = 1;
+
 $(".memo_floor").click(function (e) {
   let target_name = e.target.parentNode.getAttribute("name");
   if (target_name === "delete_btn") {
