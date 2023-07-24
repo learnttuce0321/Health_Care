@@ -27,7 +27,7 @@ let have_snack = {
   carbohydrate: 0,
   protein: 0,
   fat: 0,
-
+}
 let breakfast = {
   kcal: "",
   carbohydrate: "",
@@ -71,26 +71,20 @@ $(".food_submit").click(function (e) {
   let food_name = $(".food_input").val();
   let food_count = $(".food_input_count").val();
 
-
-  //console.log(food_info.NUTR_CONT1 * food_count);
-
-
   if (!food_info) {
     console.log("break");
     return false;
   }
+
   $(".food_input").val("");
   $(".food_input_count").val("");
 
-  lower_food_info(food_info);
-  right_food_info(food_info, food_name, food_count, e);
-
-  Cal_Have_Food(food_info, food_count);
-  left_Percent_info();
-  left_Percent_Kcal_info();
-  Circle_Progress_Bar();
+  lower_food_info(food_info)
+  right_food_info(food_info, food_name, food_count, e)
+  add_kcal(food_info, food_count, e)
   Cal_Have_Food_Number(food_info, food_count)
   Handle_Left_Info_Content()
+  
 })
 
 //왼쪽 아래 음식 하나에 대한 정보
@@ -134,7 +128,7 @@ function right_food_info(food_info, food_name, food_count, e) {
     if(this_item.length) {
         let count = parseInt($(this_item).children('p').text())
         count += Number(food_count)
-        $(this_item).children('p').text(count+' 개')
+        $(this_item).children('p').text(count+'개')
     } else {
         let food_container = document.createElement('div')
 
@@ -148,27 +142,6 @@ function right_food_info(food_info, food_name, food_count, e) {
 
         $(`#${e.target.name}`).append(food_container)
     }
-  }
-
-  if (check) {
-    let count = parseInt($(this_item).children("p").text());
-    count += Number(food_count);
-    $(this_item)
-      .children("p")
-      .text(count + " 개");
-  } else {
-    let food_container = document.createElement("div");
-
-    let food_n = document.createElement("h3");
-    food_n.innerText = food_info.DESC_KOR;
-    let food_c = document.createElement("p");
-    food_c.innerText = food_count + "개";
-    food_container.appendChild(food_n);
-    food_container.appendChild(food_c);
-    food_container.setAttribute("id", food_info.DESC_KOR);
-
-    $(`#${e.target.name}`).append(food_container);
-  }
 }
 
 function Handle_Left_Info_Content() {
@@ -181,9 +154,6 @@ function Handle_Left_Info_Content() {
 
 function Render_Main_Progress_Bar() {
   Cal_Progress_Bar_Number()
-
-  Progress_Bar_Number();
-
 
   let user_percent = $(".user_percent");
   let user_progress = $(".progress");
@@ -230,9 +200,7 @@ function left_lower_content() {
   $(kcal_container[1]).html("");
 
   let fountain_kcal = document.createElement("h3");
-  fountain_kcal.innerText = `${Math.round(
-    Number(have_kcal)
-  )} / ${eat_kcal}kcal`;
+  fountain_kcal.innerText = `${Math.round(Number(have_kcal))} / ${eat_kcal}kcal`;
 
   total_kcal += Math.round((Number(have_kcal) * 100) / eat_kcal);
 
@@ -243,9 +211,7 @@ function left_lower_content() {
   if (total_kcal > 100) {
     sentence.innerText = "충분해요!";
   } else {
-    sentence.innerText = `${Math.round(
-      eat_kcal - Number(have_kcal)
-    )} kcal만큼 부족해요`;
+    sentence.innerText = `${Math.round(eat_kcal - Number(have_kcal))} kcal만큼 부족해요`;
   }
   $(kcal_container[1]).append(sentence);
 }
