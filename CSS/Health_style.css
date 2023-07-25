@@ -167,12 +167,11 @@
 }
 
 .food_info_box {
-  margin-top: 5px;
   padding: 5px;
 }
 
 .food_info_box > h3 {
-  margin: 15px 0px;
+  margin: 10px 0px 10px;
 }
 .food_info_box > div > div {
   margin-top: 10px;
