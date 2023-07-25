@@ -115,5 +115,6 @@ function modify_memo(e) {
 function stop_modify_memo() {
   $("#memo_title").val("");
   $("#memo_context").val("");
+  $('.write_memo_btn').text('INPUT')
   check_modify = false
 }
