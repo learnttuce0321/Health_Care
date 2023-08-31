@@ -26,9 +26,7 @@ $("#youtube_btn").click(() => {
   let div = document.createElement("div");
   div.innerHTML = `<iframe src='https://www.youtube.com/embed/${ID}' width="560" height="315"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
   $("#youtube_video").empty();
-  console.log($("#youtube_video"));
   $("#youtube_video").append(div);
-  $("iframe").attr("src", `https://www.youtube.com/embed/${ID}`);
   $("iframe").attr("width", "100%");
   $("iframe").attr("height", "663px");
 });

@@ -1,4 +1,4 @@
-let memo_count = 1
+
 let check_modify = false
 
 $(".write_memo_btn").click(function Write_Memo(e) {
@@ -66,7 +66,6 @@ $(".write_memo_btn").click(function Write_Memo(e) {
     $(".memo_floor").append(memo);
 
     $(".memo_floor>div").draggable({
-      scroll: false,
       containment: "parent",
     });
   }
@@ -86,6 +85,7 @@ $(".memo_floor").click(function (e) {
         stop_modify_memo()
       }
     }
+
   } else if (e.target !== e.currentTarget) {
     e.stopPropagation();
     $(e.target).css("z-index", memo_count++);
@@ -99,22 +99,4 @@ function delete_memo(e) {
   }
 }
 
-function modify_memo(e) {
-  const TARGET_ID = e.target.parentNode.getAttribute("id");
-  const memo = $(`.memo_floor>div[id="${TARGET_ID}"]`);
-  let = memo.find("h3").text();
-  let modify_memo_title = memo.find("h3").text();
-  let modify_memo_context = memo.find("p").text();
 
-  $("#memo_title").val(modify_memo_title);
-  $("#memo_context").val(modify_memo_context);
-  $(".write_memo_btn").text("MODIFY");
-  $(".write_memo_btn").attr("name", TARGET_ID);
-}
-
-function stop_modify_memo() {
-  $("#memo_title").val("");
-  $("#memo_context").val("");
-  $('.write_memo_btn').text('INPUT')
-  check_modify = false
-}
